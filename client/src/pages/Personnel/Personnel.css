@@ -1,0 +1,56 @@
+.person .c100 {
+  width: 100% !important;
+  border: 2px solid #48d1cc !important;
+}
+@media (max-width: 767px) {
+  .person {
+    margin-top: 100px !important;
+  }
+  .person .c100 {
+    width: 100% !important;
+    border: 2px solid #48d1cc !important;
+  }
+  .person .personcont {
+    padding: 0px !important;
+  }
+  .person .textper {
+    width: 375px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .person .mrpr {
+    margin-left: -150px;
+  }
+  .person .dnns {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .person .msmsm {
+    justify-content: center !important;
+  }
+  .person .ctlc {
+    padding: 0px !important;
+  }
+  .person .clt {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center !important;
+    align-items: center;
+    text-align: center;
+  }
+  .person .img-ctl {
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+  .person .aboutctl {
+    padding: 20px !important;
+    height: max-content;
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+  }
+  .person .des-gk{
+    text-align: center !important;
+  }
+}

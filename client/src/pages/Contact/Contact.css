@@ -1,0 +1,54 @@
+@media (max-width: 767px) {
+  .contactsasd {
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 0px !important;
+  }
+  .ctcc {
+    padding: 0px !important;
+  }
+  .mld {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .text-asdccc {
+    padding-right: 0px !important;
+  }
+  .formboder {
+    border-top-right-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .imgmon {
+    border-top-left-radius: 15px !important;
+
+    border-bottom-left-radius: 15px !important;
+  }
+  .asddform {
+    width: 370px !important;
+  }
+  .ttextform {
+    margin-top: 20px;
+  }
+  .p1 {
+    padding: 40px 20px !important;
+  }
+  .fomtcontact {
+    display: flex;
+    flex-direction: column;
+    padding: 0px !important;
+    margin-top: 80px;
+  }
+  .cmkdd {
+    margin-top: 70px !important;
+    display: flex;
+    flex-direction: column;
+    padding: 0px !important;
+  }
+  .textck {
+    text-align: center;
+  }
+}
