@@ -9,22 +9,24 @@ import earth_line from "../../assets/icon/fill/earth_line.png";
 import linecertificate_2_line from "../../assets/icon/fill/linecertificate_2_line.png";
 import mortarboard_line from "../../assets/icon/fill/mortarboard_line.png";
 import ButtonCustom from "../../components/ButtonCustom/ButtonCustom";
-import Modal from "../../components/Model/Model";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
+import { FaMapMarkerAlt } from "react-icons/fa";
+// import Modal from "../../components/Model/Model";
+import introduce from "../../assets/imgs/introduce1.png";
 const InforPersonnel = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [check, setCheck] = useState(false);
   //   const [isModalOpen, setIsModalOpen] = useState(false);
   //   const handleCloseModal = () => {};
-  const { ref: refA1, inView: inViewA1 } = useInView({ triggerOnce: true });
-  const { ref: refA2, inView: inViewA2 } = useInView({ triggerOnce: true });
-  const { ref: refA3, inView: inViewA3 } = useInView({ triggerOnce: true });
-  const { ref: refA4, inView: inViewA4 } = useInView({ triggerOnce: true });
   const { ref: refA5, inView: inViewA5 } = useInView({ triggerOnce: true });
-  const { ref: refA6, inView: inViewA6 } = useInView({ triggerOnce: true });
-  const { ref: refA7, inView: inViewA7 } = useInView({ triggerOnce: true });
-  const { ref: refA8, inView: inViewA8 } = useInView({ triggerOnce: true });
   // const { ref: refA9, inView: inViewA9 } = useInView({ triggerOnce: true });
-  const { ref: refA10, inView: inViewA10 } = useInView({ triggerOnce: true });
-  const { ref: refA11, inView: inViewA11 } = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const updateCheck = () => {
       if (window.innerWidth <= 768) {
@@ -43,57 +45,64 @@ const InforPersonnel = () => {
     <div>
       <div className="w-1440 w-350  bg-white flex-col justify-start items-start ">
         <div className="self-stretch  py-6 justify-start items-center gap-3 inline-flex">
-          <Breadcrumb title1={"Nhân sự"} title2={"Nguyễn Thu Hương"} />
+          <Breadcrumb
+            slug={"nhan-su"}
+            title1={"Nhân sự"}
+            title2={"Nguyễn Thu Hương"}
+          />
         </div>
-        <div className="inf4c self-stretch  px-[100px] pt-6 pb-20 flex-col justify-start items-start gap-6 flex">
+        <div className="inf4c self-stretch   pt-6 pb-20 flex-col justify-start items-start gap-6 flex">
           <div className="inf4ccc self-stretch justify-start items-start gap-10 inline-flex">
             <div className="w-[335px] w-350 px-6 rounded-2xl border border-[#eaecf0] flex-col justify-start items-center inline-flex">
               <div className="self-stretch py-6 justify-start items-center gap-4 inline-flex">
-                <img
-                  className="w-16 h-16 rounded-full"
-                  src="https://via.placeholder.com/64x64"
-                />
+                <img className="w-16 h-16 rounded-full" src={introduce} />
                 <div className="grow shrink basis-0 flex-col justify-start items-center gap-1 inline-flex">
-                  <div className="self-stretch text-[#002740] text-2xl font-bold font-['Space Grotesk'] leading-7">
+                  <div className="self-stretch text-[#002740] text-2xl font-bold font-space-grotesk leading-7">
                     Nguyễn Thu A
                   </div>
-                  <div className="self-stretch text-[#606670] text-sm font-normal font-['Open Sans'] leading-tight">
+                  <div className="self-stretch text-[#606670] text-sm font-normal font-open-sans leading-tight">
                     Luật sư
                   </div>
                 </div>
               </div>
               <div className="self-stretch  py-6 border-t border-[#eaecf0] flex-col justify-start items-start gap-6 flex">
-                <div className="self-stretch h-[92px] flex-col justify-start items-start gap-4 flex">
+                <div className="self-stretch  flex-col justify-start items-start gap-4 flex">
                   <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                    <div className="w-5 h-5 justify-center items-center flex">
-                      <div className="w-5 h-5 relative"></div>
+                    <div className="w-5  justify-center items-center flex">
+                      <div className="w-5  relative">
+                        <FaPhoneAlt />
+                      </div>
                     </div>
-                    <div className="grow shrink basis-0 text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                    <div className="grow shrink basis-0 text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                       Số điện thoại
                     </div>
-                    <div className="text-[#002740] text-sm font-semibold font-['Open Sans'] leading-tight">
+                    <div className="text-[#002740] text-sm font-semibold font-open-sans leading-tight">
                       0123456756
                     </div>
                   </div>
                   <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                    <div className="w-5 h-5 justify-center items-center flex">
-                      <div className="w-5 h-5 relative"></div>
+                    <div className="w-5  justify-center items-center flex">
+                      <div className="w-5  relative">
+                        <IoMail />
+                      </div>
                     </div>
-                    <div className="grow shrink basis-0 text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                    <div className="grow shrink basis-0 text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                       Email
                     </div>
-                    <div className="text-[#002740] text-sm font-semibold font-['Open Sans'] leading-tight">
+                    <div className="text-[#002740] text-sm font-semibold font-open-sans leading-tight">
                       amber2313@gmail.com
                     </div>
                   </div>
                   <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                    <div className="w-5 h-5 justify-center items-center flex">
-                      <div className="w-5 h-5 relative"></div>
+                    <div className="w-5  justify-center items-center flex">
+                      <div className="w-5  relative">
+                        <FaMapMarkerAlt />
+                      </div>
                     </div>
-                    <div className="grow shrink basis-0 text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                    <div className="grow shrink basis-0 text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                       Nơi sinh sống
                     </div>
-                    <div className="text-[#002740] text-sm font-semibold font-['Open Sans'] leading-tight">
+                    <div className="text-[#002740] text-sm font-semibold font-open-sans leading-tight">
                       Hồ Chí Minh, Việt Nam
                     </div>
                   </div>
@@ -108,11 +117,11 @@ const InforPersonnel = () => {
                       <img src={earth_line} alt="earth_line" />
                     </div>
                   </div>
-                  <div className="grow shrink basis-0 text-[#002740] text-xl font-bold font-['Space Grotesk'] leading-normal">
+                  <div className="grow shrink basis-0 text-[#002740] text-xl font-bold font-space-grotesk leading-normal">
                     Giới thiệu
                   </div>
                 </div>
-                <div className="self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                <div className="self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                   Luật sư Nguyễn Thu A là một trong những luật sư cao cấp tại
                   Apolo Lawyers với hơn 15 năm kinh nghiệm trong ngành. Chị đã
                   giúp hàng trăm khách hàng giải quyết các vấn đề pháp lý phức
@@ -129,7 +138,7 @@ const InforPersonnel = () => {
                       <img src={briefcase_line} alt="briefcase_line" />
                     </div>
                   </div>
-                  <div className="grow shrink basis-0 text-[#002740] text-xl font-bold font-['Space Grotesk'] leading-normal">
+                  <div className="grow shrink basis-0 text-[#002740] text-xl font-bold font-space-grotesk leading-normal">
                     Kinh nghiệm làm việc
                   </div>
                 </div>
@@ -145,15 +154,15 @@ const InforPersonnel = () => {
                         Tập Sự Luật Sư{" "}
                       </div>
                       <div className="abcss self-stretch justify-start items-center gap-2 inline-flex">
-                        <div className="text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                        <div className="text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                           Công Ty Luật ABC
                         </div>
-                        <div className="text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                        <div className="text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                           2005-2007
                         </div>
                       </div>
                     </div>
-                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                       <span className="bullet">•</span>
                       <span>
                         Mô tả công việc: Hỗ trợ các luật sư chính trong việc
@@ -161,7 +170,7 @@ const InforPersonnel = () => {
                         phiên tòa.
                       </span>
                     </div>
-                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                       <span className="bullet">•</span>
                       Kinh nghiệm đạt được: Phát triển kỹ năng nghiên cứu và
                       phân tích pháp lý, hiểu rõ quy trình tố tụng và các thủ
@@ -181,21 +190,21 @@ const InforPersonnel = () => {
                         Luật Sư Chính{" "}
                       </div>
                       <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                        <div className="text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                        <div className="text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                           Công Ty Luật DEF
                         </div>
-                        <div className="text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                        <div className="text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                           2007-2012
                         </div>
                       </div>
                     </div>
-                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                       <span className="bullet">•</span>
                       Mô tả công việc: Chịu trách nhiệm tư vấn pháp lý cho khách
                       hàng doanh nghiệp, chuẩn bị và xem xét hợp đồng, giải
                       quyết tranh chấp và đại diện cho khách hàng tại tòa án.
                     </div>
-                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                       <span className="bullet">•</span>
                       Kinh nghiệm đạt được: Nâng cao kỹ năng đàm phán, giải
                       quyết tranh chấp và tư vấn chiến lược pháp lý cho các
@@ -215,22 +224,22 @@ const InforPersonnel = () => {
                         Trưởng Phòng Pháp Lý{" "}
                       </div>
                       <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                        <div className="text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                        <div className="text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                           Công Ty GHI
                         </div>
-                        <div className="text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                        <div className="text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                           2012-2017
                         </div>
                       </div>
                     </div>
-                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                       <span className="bullet">•</span>
                       Mô tả công việc: Lãnh đạo đội ngũ pháp lý, xây dựng và
                       triển khai các chiến lược pháp lý cho công ty, đảm bảo
                       tuân thủ quy định pháp luật và xử lý các vấn đề pháp lý
                       phát sinh.
                     </div>
-                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                       <span className="bullet">•</span>
                       Kinh nghiệm đạt được: Kỹ năng quản lý và lãnh đạo, khả
                       năng xây dựng chiến lược pháp lý toàn diện và hiệu quả.
@@ -249,22 +258,22 @@ const InforPersonnel = () => {
                         Luật Sư Cao Cấp{" "}
                       </div>
                       <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                        <div className="text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                        <div className="text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                           Apolo Lawyers
                         </div>
-                        <div className="text-[#606670] text-sm font-semibold font-['Open Sans'] leading-tight">
+                        <div className="text-[#606670] text-sm font-semibold font-open-sans leading-tight">
                           2017-nay
                         </div>
                       </div>
                     </div>
-                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                       <span className="bullet">•</span>
                       Mô tả công việc: Tư vấn pháp lý chuyên sâu cho các doanh
                       nghiệp lớn, giải quyết các tranh chấp phức tạp, đại diện
                       khách hàng trong các vụ kiện lớn và tham gia vào việc
                       hoạch định chiến lược pháp lý cho công ty.
                     </div>
-                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
+                    <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
                       <span className="bullet">•</span>
                       Kinh nghiệm đạt được: Kỹ năng chuyên môn cao trong các
                       lĩnh vực luật doanh nghiệp, luật hợp đồng và luật lao
@@ -281,7 +290,7 @@ const InforPersonnel = () => {
                       <img src={mortarboard_line} alt="mortarboard_line" />
                     </div>
                   </div>
-                  <div className="w-24 text-[#002740] text-xl font-bold font-['Space Grotesk'] leading-normal">
+                  <div className="w-24 text-[#002740] text-xl font-bold font-space-grotesk leading-normal">
                     Học vấn
                   </div>
                 </div>
@@ -292,15 +301,15 @@ const InforPersonnel = () => {
                     </div>
                   </div>
                   <div className="grow shrink basis-0 flex-col justify-center items-center gap-3 inline-flex">
-                    <div className="self-stretch h-[52px] flex-col justify-start items-start gap-2 flex">
-                      <div className="self-stretch text-[#002740] text-base font-semibold font-['Open Sans'] leading-normal">
+                    <div className="self-stretch  flex-col justify-start items-start gap-2 flex">
+                      <div className="self-stretch text-[#002740] text-base font-semibold font-open-sans leading-normal">
                         Cử Nhân Luật
                       </div>
-                      <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                        <div className="text-[#667085] text-sm font-medium font-['Inter'] leading-tight">
+                      <div className="flexhoc self-stretch justify-start items-center gap-2 flex">
+                        <div className="text-[#667085]  text-base font-medium font-['Inter'] leading-tight">
                           Đại Học Luật TP. Hồ Chí Minh{" "}
                         </div>
-                        <div className="text-[#667085] text-sm font-medium font-['Inter'] leading-tight">
+                        <div className="text-[#667085] text-base font-medium font-['Inter'] leading-tight">
                           Tháng 9 năm 2000 – Tháng 6 năm 2004
                         </div>
                       </div>
@@ -314,16 +323,16 @@ const InforPersonnel = () => {
                     </div>
                   </div>
                   <div className="grow shrink basis-0 flex-col justify-center items-center gap-3 inline-flex">
-                    <div className="self-stretch h-[52px] flex-col justify-start items-start gap-2 flex">
-                      <div className="self-stretch text-[#002740] text-base font-semibold font-['Open Sans'] leading-normal">
+                    <div className="self-stretch  flex-col justify-start items-start gap-2 flex">
+                      <div className="self-stretch text-[#002740] text-base font-semibold font-open-sans leading-normal">
                         {" "}
                         Thạc Sĩ Luật
                       </div>
-                      <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                        <div className="text-[#667085] text-sm font-medium font-['Inter'] leading-tight">
+                      <div className=" flexhoc self-stretch justify-start items-center gap-2 inline-flex">
+                        <div className="text-[#667085] text-base font-medium font-['Inter'] leading-tight">
                           Đại Học Luật Quốc Tế
                         </div>
-                        <div className="text-[#667085] text-sm font-medium font-['Inter'] leading-tight">
+                        <div className="text-[#667085] text-base font-medium font-['Inter'] leading-tight">
                           Tháng 1 năm 2005 – Tháng 12 năm 2006
                         </div>
                       </div>
@@ -337,15 +346,15 @@ const InforPersonnel = () => {
                     </div>
                   </div>
                   <div className="grow shrink basis-0 flex-col justify-center items-center gap-3 inline-flex">
-                    <div className="self-stretch h-[52px] flex-col justify-start items-start gap-2 flex">
-                      <div className="self-stretch text-[#002740] text-base font-semibold font-['Open Sans'] leading-normal">
+                    <div className="self-stretch  flex-col justify-start items-start gap-2 flex">
+                      <div className="self-stretch text-[#002740] text-base font-semibold font-open-sans leading-normal">
                         Chứng Chỉ Hành Nghề Luật Sư
                       </div>
-                      <div className="self-stretch justify-start items-center gap-2 inline-flex">
-                        <div className="text-[#667085] text-sm font-medium font-['Inter'] leading-tight">
+                      <div className=" flexhoc self-stretch justify-start items-center gap-2 inline-flex">
+                        <div className="text-[#667085] text-base font-medium font-['Inter'] leading-tight">
                           Liên Đoàn Luật Sư Việt Nam
                         </div>
-                        <div className="text-[#667085] text-sm font-medium font-['Inter'] leading-tight">
+                        <div className="text-[#667085] text-base font-medium font-['Inter'] leading-tight">
                           2006
                         </div>
                       </div>
@@ -363,21 +372,31 @@ const InforPersonnel = () => {
                       />
                     </div>
                   </div>
-                  <div className="grow shrink basis-0 text-[#002740] text-xl font-bold font-['Space Grotesk'] leading-normal">
+                  <div className="grow shrink basis-0 text-[#002740] text-xl font-bold font-space-grotesk leading-normal">
                     Thành Tích Nổi Bật
                   </div>
                 </div>
-                <div className="self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
-                  Giải quyết thành công nhiều vụ tranh chấp hợp đồng lớn giữa
-                  các doanh nghiệp.
+                <div className="flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
+                  <span className="bullet">•</span>
+                  <span>
+                    {" "}
+                    Giải quyết thành công nhiều vụ tranh chấp hợp đồng lớn giữa
+                    các doanh nghiệp.
+                  </span>
                 </div>
-                <div className="self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
-                  Tư vấn pháp lý cho nhiều công ty đa quốc gia trong việc tuân
-                  thủ luật pháp Việt Nam.
+                <div className="flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
+                  <span className="bullet">•</span>
+                  <span>
+                    Tư vấn pháp lý cho nhiều công ty đa quốc gia trong việc tuân
+                    thủ luật pháp Việt Nam.
+                  </span>
                 </div>
-                <div className="self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
-                  Đạt được nhiều giải thưởng uy tín trong ngành luật, bao gồm
-                  "Luật Sư Xuất Sắc" năm 2020.
+                <div className=" flex gap-3 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
+                  <span className="bullet">•</span>
+                  <span>
+                    Đạt được nhiều giải thưởng uy tín trong ngành luật, bao gồm
+                    "Luật Sư Xuất Sắc" năm 2020.
+                  </span>
                 </div>
               </div>
             </div>
@@ -388,7 +407,7 @@ const InforPersonnel = () => {
             ref={refA5}
             className={` ${
               inViewA5 ? "animate-slide-bottom" : ""
-            } w-full h-max baovecontainer px-[100px] flex-col justify-start items-start gap-2.5 pb-20 flex`}
+            } w-full h-max baovecontainer  flex-col justify-start items-start gap-2.5 pb-20 flex`}
           >
             <div className=" baove w-full h-max px-[200px] py-10 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-2xl shadow flex-col justify-start items-center gap-10 flex">
               <div className="asd h-48 flex-col justify-start items-center gap-6 flex">

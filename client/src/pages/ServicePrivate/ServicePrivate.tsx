@@ -5,16 +5,25 @@ import ButtonCustom from "../../components/ButtonCustom/ButtonCustom";
 import luasurieng1 from "../../assets/luatsu/luatsurieng1.png";
 import luasurieng2 from "../../assets/luatsu/luatsurieng2.png";
 import "./ServicePrivate.css";
+import { useEffect } from "react";
+
 export default function ServicePrivate() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <PageMeta
         title="Luật sư riêng"
         description="Luật sư riêng là gì, tầm quan trọng của luật sư riêng cho doanh nghiệp (mục đích để title SEO này được đặt tên tuỳ ý để hiển thị trên kết quả tìm kiếm google cho nó phù hợp nhu cầu)"
       />
-      <Breadcrumb title1={"Dịch vụ"} title2={"Luật sư riêng"} />
-      <hr />
-      <section className="w-1240 w-350 pad100 sprive">
+      <section className="w-1440 w-350 sprive">
+        <Breadcrumb
+          slug={"dich-vu"}
+          title1={"Dịch vụ"}
+          title2={"Luật sư riêng"}
+        />
+        <hr />
         <Row>
           <Col sm={8}>
             <div className="w-full pt-10 pb-16 flex-col justify-start items-center gap-12 inline-flex spcontainer">

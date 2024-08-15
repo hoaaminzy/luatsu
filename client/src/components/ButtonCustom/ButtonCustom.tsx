@@ -23,7 +23,7 @@ const ButtonCustom: React.FC<ButtonProps> = ({
   };
 
   return (
-    <div className="flex justify-center mt-4">
+    <div className="flex justify-start mt-4">
       <div
         className="relative send-button  py-2.5 rounded-xl justify-center items-center gap-3 inline-flex"
         style={gradientStyle}

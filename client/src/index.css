@@ -82,18 +82,38 @@
   width: 1114px !important;
   margin: 0 auto;
 }
-.w-1240 {
+/* .w-1240 {
   width: 1240px !important;
   margin: 0 auto;
-}
+} */
 .w-1440 {
-  width: 1240 !important;
+  width: 1240px !important;
   margin: 0 auto;
 }
 .w-1263-header {
   width: 1263px !important;
   margin: 0 auto;
 }
+/* index.css */
+.loading-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  z-index: 9999999999999;
+}
+
+.loading {
+  overflow: hidden;
+  position: relative;
+}
+
 @media (max-width: 767px) {
   .w-350 {
     width: 375px !important;
@@ -108,7 +128,7 @@
   .text-16 {
     font-size: 16px !important;
   }
-  .text-24 {
+  .text-24m {
     font-size: 24px !important;
   }
   .text-40 {

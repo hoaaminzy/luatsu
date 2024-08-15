@@ -2,8 +2,7 @@ import ButtonCustom from "../../components/ButtonCustom/ButtonCustom";
 import PageMeta from "../../components/PageMeta/PageMeta";
 import ProfessionalBanner from "../../components/ProfessionalBanner/ProfessionalBanner";
 import { useInView } from "react-intersection-observer";
-import customer1 from "../../assets/imgs/customer1.png";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import rieng from "../../assets/luatsu/rieng.png";
 import tranhtung from "../../assets/luatsu/tranhtung.png";
 import hinhsu from "../../assets/luatsu/hinhsu.png";
@@ -17,86 +16,172 @@ import hanghaivabaohiemquocte from "../../assets/luatsu/hanghaivabaohiemquocte.p
 import tuvanvaxaydung from "../../assets/luatsu/tuvanvaxaydung.png";
 import nguoinuocngoaitaivietnam from "../../assets/luatsu/nguoinuocngoaitaivietnam.png";
 import CardService from "../../components/CardSevice/CardService";
+import customer1 from "../../assets/imgs/c1kbord.png";
+import customer2 from "../../assets/imgs/c2kbord.png";
+import customer3 from "../../assets/imgs/c3kbord.png";
+import customer4 from "../../assets/imgs/c4kbord.png";
+import customer5 from "../../assets/imgs/c5kbord.png";
+import avcustomer1 from "../../assets/imgs/c1av.png";
+import avcustomer2 from "../../assets/imgs/c2av.png";
+import avcustomer3 from "../../assets/imgs/c3av.png";
+import avcustomer4 from "../../assets/imgs/c4av.png";
+import avcustomer5 from "../../assets/imgs/c5av.png";
 import "./Service.css";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-const dataLuatSu = [
-  {
-    image: rieng,
-    heading: "Luật sư riêng",
-    description:
-      "Bạn sẽ có một luật sư đại diện luôn sẵn sàng giải quyết mọi vấn đề pháp lý một cách nhanh chóng và hiệu quả.",
-  },
-  {
-    image: tranhtung,
-    heading: "Luật sư tranh tụng",
-    description:
-      "Bảo vệ quyền lợi của bạn trong các vụ kiện và tranh chấp pháp lý.",
-  },
-  {
-    image: hinhsu,
-    heading: "Luật sư hình sự",
-    description:
-      "Bảo vệ pháp lý chuyên nghiệp và tận tâm trong các vụ án hình sự.",
-  },
-  {
-    image: dansu,
-    heading: "Luật sư dân sự",
-    description:
-      "Hỗ trợ pháp lý chuyên nghiệp trong các vụ tranh chấp và vấn đề dân sự.",
-  },
-  {
-    image: nhadat,
-    heading: "Luật sư nhà đất",
-    description:
-      "Đảm bảo quyền lợi và tài sản của bạn với sự hỗ trợ pháp lý chuyên nghiệp",
-  },
-  {
-    image: laodong,
-    heading: "Luật sư lao động",
-    description:
-      "Bảo vệ quyền lợi lao động của bạn với sự tư vấn chuyên sâu và tận tâm",
-  },
+import {
+  CustomNextArrow,
+  CustomPrevArrow,
+} from "../../components/CustomArrowButton/CustomArrowButton";
+import Slider from "react-slick";
+import { useTranslationContext } from "../../context/TranslationContext";
 
-  {
-    image: tuvanhopdong,
-    heading: "Luật sư tư vấn hợp đồng",
-    description: "Đảm bảo mọi giao dịch của bạn đều an toàn và minh bạch",
-  },
-  {
-    image: honnhanvagiadinh,
-    heading: "Luật sư hôn nhân và gia đình",
-    description: "Bảo vệ hạnh phúc gia đình bạn với sự hỗ trợ pháp lý tận tâm",
-  },
-  {
-    image: doanhnghiepvadautu,
-    heading: "Luật sư doanh nghiệp và đầu tư",
-    description:
-      "Đảm bảo sự phát triển bền vững và an toàn cho doanh nghiệp bạn",
-  },
-  {
-    image: tuvanvaxaydung,
-    heading: "Luật sư tư vấn về xây dựng",
-    description:
-      "Xây dựng nền tảng vững chắc cho dự án của bạn với sự tư vấn pháp lý chuyên nghiệp",
-  },
-  {
-    image: hanghaivabaohiemquocte,
-    heading: "Luật sư hàng hải và bảo hiểm và quốc tế",
-    description:
-      "Đảm bảo an toàn và quyền lợi cho hoạt động hàng hải và bảo hiểm của bạn",
-  },
-  {
-    image: nguoinuocngoaitaivietnam,
-    heading: "Luật sư cho người nước ngoài tại Việt Nam",
-    description:
-      "Hỗ trợ pháp lý toàn diện và chuyên nghiệp cho người nước ngoài tại Việt Nam",
-  },
-];
 export default function Service() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeSlide, setActiveSlide] = useState<number>(0);
+  const t = useTranslationContext();
+  const dataLuatSu = [
+    {
+      image: rieng,
+      alt: t("luatsurieng"),
+      heading: t("luatsurieng"),
+      description: t("desLuatSuRieng"),
+    },
+    {
+      image: tranhtung,
+      alt: t("luatsutranhtung"),
+      heading: t("luatsutranhtung"),
+      description: t("desTranhTung"),
+    },
+    {
+      image: hinhsu,
+      alt: t("luatsuhinhsu"),
+      heading: t("luatsuhinhsu"),
+      description: t("desHinhSu"),
+    },
+    {
+      image: dansu,
+      alt: t("luatsudansu"),
+      heading: t("luatsudansu"),
+      description: t("desDanSu"),
+    },
+    {
+      image: nhadat,
+      alt: t("luatsunhadat"),
+      heading: t("luatsunhadat"),
+      description: t("desNhaDat"),
+    },
+    {
+      image: laodong,
+      alt: t("luatsulaodong"),
+      heading: t("luatsulaodong"),
+      description: t("desLaoDong"),
+    },
+
+    {
+      image: tuvanhopdong,
+      alt: t("luatsutuvanhopdong"),
+      heading: t("luatsutuvanhopdong"),
+      description: t("desLuatSuTuVanHopDong"),
+    },
+    {
+      image: honnhanvagiadinh,
+      alt: t("luatsuhonnhavagiading"),
+      heading: t("luatsuhonnhavagiading"),
+      description: t("desLuatSuHonNhanVaGiaDinh"),
+    },
+    {
+      image: doanhnghiepvadautu,
+      alt: t("luatsudanhnghiepvadautu"),
+      heading: t("luatsudanhnghiepvadautu"),
+      description: t("desLuatSuDanhNghiepVaDauTu"),
+    },
+    {
+      image: tuvanvaxaydung,
+      alt: t("luatsutuvanvaxaydung"),
+      heading: t("luatsutuvanvaxaydung"),
+      description: t("desLuatSuTuVanVaXayDung"),
+    },
+    {
+      image: hanghaivabaohiemquocte,
+      alt: t("luatsuhanghaivabhqt"),
+      heading: t("luatsuhanghaivabhqt"),
+      description: t("desLuatSuNguoiNuocNgoaiTaiVN"),
+    },
+    {
+      image: nguoinuocngoaitaivietnam,
+      alt: t("luatsunguoinuocngoaitaiVN"),
+      heading: t("luatsunguoinuocngoaitaiVN"),
+      description: t("desLuatSuNguoiNuocNgoaiTaiVN"),
+    },
+  ];
+  const items = [
+    {
+      number: "01",
+      title: t("cddaingohapdan"),
+      description: t("chungtoicamket"),
+    },
+    {
+      number: "02",
+      title: t("tamhuyetnghenghiep"),
+      description: t("chungtoicamket"),
+    },
+    {
+      number: "03",
+      title: t("doimoilientuc"),
+      description: t("chungtoicamket"),
+    },
+    {
+      number: "04",
+      title: t("daoducnghenghiep"),
+      description: t("chungtoicamket"),
+    },
+  ];
+
+  const talkAbout = [
+    {
+      id: 1,
+      image: customer1,
+      description: t("thuytalk"),
+      name: "Chị Thủy - " + t("doanhnhan"),
+      avatar: avcustomer1,
+    },
+    {
+      id: 2,
+      image: customer2,
+      description: t("hungtalk"),
+      name: "Anh Hưng - " + t("doanhnhan"),
+      avatar: avcustomer2,
+    },
+    {
+      id: 3,
+      image: customer3,
+      description: t("dattalk"),
+      name: "Anh Đạt - " + t("doanhnhan"),
+      avatar: avcustomer3,
+    },
+    {
+      id: 4,
+      image: customer4,
+      description: t("linhtalk"),
+      name: "Chị Linh - " + t("doanhnhan"),
+      avatar: avcustomer4,
+    },
+    {
+      id: 5,
+      image: customer5,
+      description: t("nhantalk"),
+      name: "Anh Nhân - " + t("doanhnhan"),
+      avatar: avcustomer5,
+    },
+  ];
+
   const { ref: refA1, inView: inViewA1 } = useInView({ triggerOnce: true });
   const { ref: refA2, inView: inViewA2 } = useInView({ triggerOnce: true });
   const { ref: refA5, inView: inViewA5 } = useInView({ triggerOnce: true });
   const { ref: refA6, inView: inViewA6 } = useInView({ triggerOnce: true });
+  const { ref: refA7, inView: inViewA7 } = useInView({ triggerOnce: true });
+
   const [check, setCheck] = useState(false);
 
   useEffect(() => {
@@ -113,6 +198,51 @@ export default function Service() {
       window.removeEventListener("resize", updateCheck);
     };
   }, []);
+
+  const settings2 = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: (current: number) => setActiveSlide(current),
+    prevArrow: (
+      <CustomPrevArrow
+        customStyle={{
+          position: "absolute",
+          width: "50px",
+          height: "50px",
+          left: "35px", // Adjust this value as needed
+          top: "50%",
+          transform: "translateY(-50%)",
+          borderRadius: "50%",
+          backgroundColor: "silver",
+          zIndex: 1000, // Ensure this is higher than the image's z-index
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      />
+    ),
+    nextArrow: (
+      <CustomNextArrow
+        customStyle={{
+          position: "absolute",
+          width: "50px",
+          height: "50px",
+          right: "35px", // Adjust this value as needed
+          top: "50%",
+          transform: "translateY(-50%)",
+          borderRadius: "50%",
+          backgroundColor: "silver",
+          zIndex: 1000, // Ensure this is higher than the image's z-index
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      />
+    ),
+  };
   return (
     <>
       <PageMeta
@@ -123,43 +253,48 @@ export default function Service() {
         className="w-1440 w-350  d-flex bg-white flex-col gttn"
         style={{ paddingTop: "100px" }}
       >
-        <div className="introContainer w-full px-[100px] py-16 flex-col justify-center items-center gap-2.5 flex">
+        <div className="introContainer w-full  py-16 flex-col justify-center items-center gap-2.5 flex">
           <div className="w-full flex-col justify-center items-center gap-12 fix-gap flex">
             <div className="w-full flex-col justify-center items-center gap-2 flex introo">
               <div className="text-intro text-center text-[#002740] text-[56px] flex align-items-center justify-center font-bold font-space-grotesk ">
-                <div
-                  className="serv flex items-center gap-3 text-32 text-56"
+                <h1
+                  className="serv fw-bold flex items-center gap-3 text-32 text-56"
                   style={{ marginRight: "130px" }}
                 >
-                  Dịch vụ pháp lý <ProfessionalBanner title="chuyên nghiệp" />
-                </div>{" "}
+                  {t("dvphaply")}
+                  <ProfessionalBanner title={t("chuyennghiep")} />
+                </h1>{" "}
               </div>
               <div className="asdmnd w-full pb-8 flex-col justify-center items-center gap-6 flex introooo">
                 <div className="text-32 text-56 text-intro text-center text-[#002740] text-[56px] font-bold font-space-grotesk ">
-                  Đảm bảo quyền lợi của bạn
+                  {t("dambaoquyenloi")}
                 </div>
                 <div className="text-16 desc-intro  w-[654px] text-center text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Một loạt các dịch vụ pháp lý đa dạng và toàn diện nhằm đáp ứng
-                  mọi nhu cầu của khách hàng. Đội ngũ luật sư chuyên nghiệp và
-                  giàu kinh nghiệm của chúng tôi luôn sẵn sàng hỗ trợ bạn với sự
-                  tận tâm và cam kết mang lại hiệu quả cao nhất.
+                  {t("motloatcacdv")}
                 </div>
               </div>
+              <div className="buttonse">
+                <ButtonCustom
+                  title={t("lhngay")}
+                  from="#40e0d0"
+                  to="#48d1cc"
+                  color="text-white"
+                />
+              </div>
             </div>
-            <ButtonCustom
-              title="Liên hệ ngay"
-              from="#40e0d0"
-              to="#48d1cc"
-              color="text-white"
-            />
           </div>
         </div>
-        <Row className="gtkb w-full  py-20">
+        <Row
+          ref={refA7}
+          className={`  ${
+            inViewA7 ? "animate-slide-left" : ""
+          } gtkb w-full  py-20`}
+        >
           <div className="flex-col justify-start items-start gap-4 inline-flex dv-ct">
             <div className="serviceus text-32 text-48 text-black text-5xl font-bold font-space-grotesk leading-[56px]">
               Dịch vụ của chúng tôi
             </div>
-            <div className="text-[#606670] text-16 text-base font-normal font-open-sans leading-7">
+            <div className="desc-ser text-[#606670] text-16 text-base font-normal font-open-sans leading-7">
               Nếu bạn tìm kiếm sự trợ giúp về pháp lý, các dịch vụ của chúng tôi
               sẽ đáp ứng tất cả
             </div>
@@ -180,9 +315,9 @@ export default function Service() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-3">
+          <div className="text-center flex w-full justify-center mt-5">
             <ButtonCustom
-              title="Xem thêm"
+              title={t("xemthem")}
               from="#40e0d0"
               to="#48d1cc"
               color="text-white"
@@ -190,84 +325,112 @@ export default function Service() {
           </div>
         </Row>
         <div
-          className="pad100 flex talkabout"
+          className="w-1440 w-350 py-5  talkabout"
           style={{
-            // paddingTop: "160px",
             height: "max-content",
           }}
         >
-          <div
-            ref={refA1}
-            style={{ width: "50%" }}
-            className={` ${
-              inViewA1 ? "animate-slide-left" : ""
-            } w-full talk flex flex-col justify-end`}
-          >
-            <div className="text-talk text-[#002740] pb-8 text-5xl font-bold font-space-grotesk">
-              Khách hàng nói gì về Apolo Laywers
-            </div>
+          <div className="flex h-max flex-col-mpbile">
+            <div
+              ref={refA1}
+              className={`${
+                inViewA1 ? "animate-slide-left" : ""
+              } talk flex-1 flex flex-col justify-end `}
+            >
+              <div className="text-talk text-[#002740] pb-10 text-32 text-5xl font-bold font-space-grotesk">
+                {t("khachangnoiveAP")}
+              </div>
 
-            <div className="pls h-max w-full px-16 py-10 bg-[#f4f4f4] rounded-tl-2xl rounded-bl-2xl flex-col justify-end items-start gap-10 flex">
-              <div className=" text-[#002740] text-base font-normal font-open-sans leading-normal">
-                Apolo Lawyers đã giúp tôi vượt qua một vụ tranh chấp pháp lý
-                phức tạp liên quan đến doanh nghiệp của mình. Sự chuyên nghiệp
-                và tận tâm của họ đã tạo nên sự khác biệt. Tôi đặc biệt ấn tượng
-                với khả năng lắng nghe và tư vấn của đội ngũ luật sư. Họ luôn
-                sẵn sàng hỗ trợ mọi lúc cần thiết, mang đến cho tôi sự an tâm
-                tuyệt đối khi có họ bên cạnh.
-              </div>
-              <div className="justify-start items-center gap-4 inline-flex">
-                <img
-                  className="w-[60px] h-[60px] rounded-full"
-                  src={customer1}
-                />
-                <div className="text-[#002740] text-base font-semibold font-open-sans leading-loose">
-                  Chị Linh - doanh nhân
+              <motion.div
+                key={talkAbout[activeSlide].id}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col h-max"
+              >
+                <div className="text-16 pls h-max px-16 py-10 bg-[#f4f4f4] rounded-tl-2xl rounded-bl-2xl flex-col justify-end items-start gap-10 flex">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-[#002740] text-base font-normal font-open-sans leading-normal texcs"
+                  >
+                    {talkAbout[activeSlide]?.description}
+                  </motion.div>
+                  <div className="justify-start items-center gap-4 inline-flex">
+                    <motion.img
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="w-[60px] h-[60px] rounded-full"
+                      src={talkAbout[activeSlide]?.avatar}
+                    />
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-[#002740] text-base font-semibold font-open-sans leading-loose"
+                    >
+                      {talkAbout[activeSlide]?.name}
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
-          <div
-            ref={refA2}
-            className={`  ${
-              inViewA2 ? "animate-slide-right" : ""
-            } w-[651px] flex h-[550px] rounded-tl-2xl rounded-tr-2xl rounded-br-2xl img-talk`}
-          >
-            <img
-              src={customer1}
-              alt="customer-apolo"
-              width="651px"
-              height="550px"
-            />
+            <div
+              ref={refA2}
+              style={{ zIndex: 99 }}
+              className={`${
+                inViewA2 ? "animate-slide-right" : ""
+              }  w-[680px]  h-[max]  img-talk`}
+            >
+              <Slider {...settings2}>
+                {talkAbout.map((item, index) => (
+                  <motion.img
+                    key={index}
+                    src={item.image}
+                    alt="customer-apolo"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="imgsdsd1"
+                    style={{
+                      width: "651px",
+                      height: "550px",
+                      objectFit: "cover",
+                      zIndex: 1,
+                    }}
+                  />
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
         <div className="w-1440">
-          <div className="gtkb2 w-full px-[100px] py-20 flex ">
+          <div className="gtkb2 w-full  py-20 flex gap-6 ">
             <div
               style={{ flex: 1 }}
               ref={refA5}
               className={`${inViewA5 ? "animate-slide-bottom" : ""}`}
             >
               <div className="flex-col justify-start items-start flex gap-6 gtkb-contaner ">
-                <div className="text-32 text-48 text-gtkb text-[#002740] text-5xl font-bold font-space-grotesk leading-[56px]">
-                  Giá trị tạo nên <br />
-                  sự khác biệt
-                </div>
                 <div
-                  className=" w-[582px] text-16 desc-gtkb self-stretch text-[#606670] text-base font-normal font-open-sans leading-7"
+                  className="text-32 text-48 text-gtkb text-[#002740] text-5xl font-bold font-space-grotesk leading-[56px]"
+                  dangerouslySetInnerHTML={{
+                    __html: t("gttaonen"),
+                  }}
+                ></div>
+                <div
+                  className="text-16 desc-gtkb self-stretch text-[#606670] text-base font-normal font-open-sans leading-7"
                   style={{ height: "calc(200px - 20px)" }}
                 >
-                  Tại Apolo Lawyers, chúng tôi không ngừng nỗ lực để tạo ra sự
-                  khác biệt trong từng dịch vụ pháp lý mà chúng tôi cung cấp.
-                  Các giá trị cốt lõi dưới đây là nền tảng giúp chúng tôi mang
-                  đến cho khách hàng những giải pháp pháp lý tốt nhất
+                  {t("taiapchungtoitaonen")}
                 </div>
               </div>
             </div>
             <div
               ref={refA6}
               style={{ flex: 1 }}
-
               className={`${
                 inViewA6 ? "animate-slide-top" : ""
               } flex asd justify-end `}
@@ -282,69 +445,71 @@ export default function Service() {
                       gridTemplateColumns: "repeat(2, 1fr)",
                     }}
                   >
-                    <div className="c100 px-4 pt-4 pb-16 rounded-2xl  border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
-                      <div className="text-40 text-[#002740] text-[40px] font-medium font-['Space Grotesk'] leading-[48px]">
-                        01
+                    {items.map((item, index) => (
+                      <div
+                        className="hover-item"
+                        key={index}
+                        onMouseEnter={() => setHoveredIndex(index)}
+                        onMouseLeave={() => setHoveredIndex(null)}
+                      >
+                        <div>
+                          {hoveredIndex === index ? (
+                            <motion.div
+                              initial={{ opacity: 0, x: 0 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 1 }}
+                              className="c100 h-[250px] hover-container rounded-2xl bg-[#48d1cc] text-white p-3 border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex"
+                            >
+                              <p className="text-sadasd text-clamp-intro">
+                                {item.description}
+                              </p>
+                            </motion.div>
+                          ) : (
+                            <div className="c100 h-[250px] px-4 pt-4 pb-16 rounded-2xl border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
+                              <div className="text-[#002740] text-[40px] font-medium font-space-grotesk leading-[48px]">
+                                {item.number}
+                              </div>
+                              <div className="text-[#48d1cc] text-2xl font-bold font-space-grotesk">
+                                {item.title}
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                      <div className="text-24 text-[#48d1cc] text-2xl font-bold font-['Space Grotesk'] leading-loose">
-                        Chất Lượng Dịch Vụ
-                      </div>
-                    </div>
-                    <div className=" c100 px-4 pt-4 pb-16 rounded-2xl  border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
-                      <div className="text-40 text-[#002740] text-[40px] font-medium font-['Space Grotesk'] leading-[48px]">
-                        02
-                      </div>
-                      <div className="text-24 text-[#48d1cc] text-2xl font-bold font-['Space Grotesk'] leading-loose">
-                        Tâm Huyết Nghề Nghiệp
-                      </div>
-                    </div>
-                    <div className="c100 px-4 pt-4 pb-16 rounded-2xl  border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
-                      <div className="text-40 self-stretch text-[#002740] text-[40px] font-medium font-['Space Grotesk'] leading-[48px]">
-                        03
-                      </div>
-                      <div className="text-24 self-stretch text-[#48d1cc] text-2xl font-bold font-['Space Grotesk'] leading-loose">
-                        Đổi Mới Liên Tục
-                      </div>
-                    </div>
-                    <div className="c100 px-4 pt-4 pb-16 rounded-2xl  border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
-                      <div className="text-40 self-stretch text-[#002740] text-[40px] font-medium font-['Space Grotesk'] leading-[48px]">
-                        04
-                      </div>
-                      <div className="text-24 self-stretch text-[#48d1cc] text-2xl font-bold font-['Space Grotesk'] leading-loose">
-                        Đạo đức nghề nghiệp
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-full zxc pt-16">
+        <div className="w-full zxc pt-10">
           <div
             ref={refA5}
             className={` ${
               inViewA5 ? "animate-slide-bottom" : ""
-            } w-full h-max baovecontainer px-[100px] flex-col justify-start items-start gap-2.5 pb-20 flex`}
+            } w-full h-max baovecontainer  flex-col justify-start items-start gap-2.5 pb-20 flex`}
           >
-            <div className=" baove w-full h-max px-[200px] py-10 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-2xl shadow flex-col justify-start items-center gap-10 flex">
-              <div className="asd h-48 flex-col justify-start items-center gap-6 flex">
-                <div className="text-bvvvv text-center text-white text-5xl font-bold font-space-grotesk leading-[56px]">
-                  Bảo vệ {check && <br />} Quyền lợi của Bạn {!check && <br />}{" "}
-                  Ngay Hôm Nay!
+            <div className=" baove w-350 w-1440  px-[200px] py-16 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-2xl shadow flex-col justify-start items-center flex">
+              <div className="asd flex-col justify-center items-center gap-6 flex">
+                <div
+                  className="text-bvvvv text-center text-white text-5xl text-32 font-bold font-space-grotesk "
+                  dangerouslySetInnerHTML={{
+                    __html: t("bvQuyenLoi"),
+                  }}
+                ></div>
+                <div className="descbv w-[654px] text-16 text-center text-white text-base font-normal font-open-sans ">
+                  {t("desBVQuyenLoiCuaBan")}
                 </div>
-                <div className="descbv w-[654px] text-center text-white text-base font-normal font-open-sans leading-7">
-                  Đừng để những vấn đề pháp lý cản trở bước tiến của bạn. Hãy để
-                  Apolo Lawyers đồng hành và bảo vệ quyền lợi của bạn một cách
-                  chuyên nghiệp và tận tâm.
+                <div>
+                  <ButtonCustom
+                    title={t("lhngay")}
+                    from="#fff"
+                    to="#fff"
+                    color="text-black"
+                  />
                 </div>
               </div>
-              <ButtonCustom
-                title="Liên hệ ngay"
-                from="#fff"
-                to="#fff"
-                color="text-black"
-              />
             </div>
           </div>
         </div>

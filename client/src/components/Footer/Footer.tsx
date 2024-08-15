@@ -38,10 +38,10 @@ export default function Footer() {
   if (isMobile) {
     return (
       <div
-        className="footermobile px-[100px] py-20 bg-[#f3f3f3]"
+        className="footermobile w-full py-20 bg-[#f3f3f3]"
         style={{ width: "100%" }}
       >
-        <section className="mx-auto">
+        <section>
           <Row>
             <Col
               sm={4}
@@ -414,10 +414,10 @@ export default function Footer() {
 
   return (
     <div
-      className="footermobile px-[100px] py-20 bg-[#f3f3f3]"
+      className="footermobile  py-20 bg-[#f3f3f3]"
       style={{ width: "100%" }}
     >
-      <section className=" mx-auto">
+      <section className="w-1440 mx-auto">
         <Row>
           <Col
             sm={4}

@@ -1,15 +1,19 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./header.css";
+import { TFunction } from "i18next";
 interface HeaderProps {
-  type: boolean;
+  type?: boolean;
+  changeLanguage?: (language: string) => void;
+  t?: TFunction;
 }
 
-const Header: React.FC<HeaderProps> = ({ type }) => {
+const Header: React.FC<HeaderProps> = ({ t, type, changeLanguage }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [slidesToShow, setSlidesToShow] = useState(false);
-  const [toggleLanguage, setToggleLanguage] = useState(false);
+  const [toggleLanguage, setToggleLanguage] = useState<string>("vn");
   const navigate = useNavigate();
+
   useEffect(() => {
     const updateSlidesToShow = () => {
       if (window.innerWidth <= 768) {
@@ -24,15 +28,30 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
       window.removeEventListener("resize", updateSlidesToShow);
     };
   }, []);
-  const dataNav = [
-    { slug: "trang-chu", name: "Trang chủ" },
-    { slug: "gioi-thieu", name: "Giới thiệu" },
-    { slug: "dich-vu", name: "Dịch vụ" },
-    { slug: "tuyen-dung", name: "Tuyển dụng" },
-    { slug: "nhan-su", name: "Nhân sự" },
-    { slug: "bai-viet", name: "Bài viết" },
-  ];
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "vn";
+    setToggleLanguage(savedLanguage);
+    if (changeLanguage) {
+      changeLanguage(savedLanguage);
+    }
+  }, [changeLanguage]);
+  const translate = (key: string) => (t ? t(key) : key);
 
+  const dataNav = [
+    { slug: "trang-chu", name: translate("trangchu") },
+    { slug: "gioi-thieu", name: translate("gioithieu") },
+    { slug: "dich-vu", name: translate("dichvu") },
+    { slug: "tuyen-dung", name: translate("tuyendung") },
+    { slug: "nhan-su", name: translate("nhansu") },
+    { slug: "bai-viet", name: translate("baiviet") },
+  ];
+  const handleLanguageChange = (language: string) => {
+    if (changeLanguage) {
+      changeLanguage(language);
+      setToggleLanguage(language);
+      localStorage.setItem("language", language);
+    }
+  };
   return (
     <div className="w-1263-header w-350 mx-auto">
       <div className="relative">
@@ -82,14 +101,14 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
                 className=" cursor-pointer px-6 py-2 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-lg justify-center items-center gap-3 flex"
               >
                 <div className=" text-white text-base font-semibold font-open-sans leading-loose">
-                  Liên hệ
+                  {translate("lienhe")}
                 </div>
               </div>
               <div className="flex items-center icon-choose ">
                 <div
-                  onClick={() => setToggleLanguage(true)}
+                  onClick={() => handleLanguageChange("en")}
                   className={`px-3 cursor-pointer ${
-                    toggleLanguage
+                    toggleLanguage === "en"
                       ? "bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] pt-3 pb-2.5 rounded-lg text-white"
                       : "bg-[#e7ecf1] text-[#002740] py-1"
                   } rounded-lg flex-col justify-center items-center gap-2.5 inline-flex`}
@@ -100,15 +119,15 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
                 </div>
 
                 <div
-                  onClick={() => setToggleLanguage(false)}
+                  onClick={() => handleLanguageChange("vn")}
                   className={`px-3 cursor-pointer ${
-                    !toggleLanguage
-                      ? "bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] text-white pt-3 pb-2.5 rounded-lg"
-                      : "bg-[#e7ecf1] py-1"
+                    toggleLanguage === "vn"
+                      ? "bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] pt-3 pb-2.5 rounded-lg text-white"
+                      : "bg-[#e7ecf1] text-[#002740] py-1"
                   } rounded-lg flex-col justify-center items-center gap-2.5 inline-flex`}
                 >
                   <div className="text-sm font-semibold font-open-sans leading-normal">
-                    VI
+                    VN
                   </div>
                 </div>
               </div>

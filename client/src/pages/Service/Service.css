@@ -10,6 +10,12 @@
   .text-talk {
     font-size: 32px !important;
   }
+  .buttonse{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .gttn .text-gtkb {
     margin-top: 50px !important;
   }
@@ -21,6 +27,10 @@
   }
   .gttn .serviceus {
     margin-top: 15px;
+    text-align: center;
+  }
+  .gttn .desc-ser{
+    text-align: center;
   }
   .gttn .text-intro {
     width: 100%;

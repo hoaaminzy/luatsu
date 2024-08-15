@@ -12,7 +12,9 @@ import time from "../../assets/icon/fill/time_line.png";
 import ButtonCustom from "../../components/ButtonCustom/ButtonCustom";
 const ArticleDetail = () => {
   const [check, setCheck] = useState(false);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const updateCheck = () => {
       if (window.innerWidth <= 768) {
@@ -138,11 +140,12 @@ const ArticleDetail = () => {
     <div className="w-1440 ad w-350  py-6 bg-white flex-col flex">
       <div className="py-6 flex-col justify-start items-start gap-2.5 flex">
         <Breadcrumb
+          slug={"bai-viet"}
           title1={"Bài viết"}
           title2={"Tranh chấp giữa các cổ đông trong công ty"}
         />
       </div>
-      <div className="w-1440 w-350 adcon px-[100px] border-t border-[#3c3c3c]/20 gap-10 flex">
+      <div className="w-1440 w-350 adcon  border-t border-[#3c3c3c]/20 gap-10 flex">
         <div className="pbno w-[750px] w-350 pt-10 pb-16 flex-col justify-start items-center gap-12 inline-flex">
           <div className=" flex-col justify-start items-start gap-6 flex">
             <div className=" justify-start items-start gap-6 flex">
@@ -492,7 +495,7 @@ const ArticleDetail = () => {
                   />
                   <div className="grow shrink basis-0 flex-col justify-start items-start gap-4 inline-flex">
                     <div className=" h-[152px] flex-col justify-start items-start gap-2 flex">
-                      <div className=" text-[#002740] text-base font-bold font-space-grotesk leading-normal">
+                      <div className="text-clamp-mobile text-[#002740] text-base font-bold font-space-grotesk leading-normal">
                         Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers
                       </div>
                       <div className="h-4 flex-col justify-center items-start gap-2 flex">
@@ -503,7 +506,7 @@ const ArticleDetail = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="text-clamp text-[#606670] text-xs font-normal font-open-sans leading-snug">
+                      <div className="text-clamp text-clamp-mobile text-[#606670] text-xs font-normal font-open-sans leading-snug">
                         Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi
                         nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là
                         vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật
@@ -527,7 +530,7 @@ const ArticleDetail = () => {
                   />
                   <div className="grow shrink basis-0 flex-col justify-start items-start gap-4 inline-flex">
                     <div className=" h-[152px] flex-col justify-start items-start gap-2 flex">
-                      <div className=" text-[#002740] text-base font-bold font-space-grotesk leading-normal">
+                      <div className="text-clamp-mobile text-[#002740] text-base font-bold font-space-grotesk leading-normal">
                         Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers
                       </div>
                       <div className="h-4 flex-col justify-center items-start gap-2 flex">
@@ -564,7 +567,7 @@ const ArticleDetail = () => {
                   />
                   <div className="grow shrink basis-0 flex-col justify-start items-start gap-4 inline-flex">
                     <div className=" h-[152px] flex-col justify-start items-start gap-2 flex">
-                      <div className=" text-[#002740] text-base font-bold font-space-grotesk leading-normal">
+                      <div className="text-clamp-mobile text-[#002740] text-base font-bold font-space-grotesk leading-normal">
                         Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers
                       </div>
                       <div className="h-4 flex-col justify-center items-start gap-2 flex">
@@ -599,7 +602,7 @@ const ArticleDetail = () => {
                   />
                   <div className="grow shrink basis-0 flex-col justify-start items-start gap-4 inline-flex">
                     <div className=" h-[152px] flex-col justify-start items-start gap-2 flex">
-                      <div className=" text-[#002740] text-base font-bold font-space-grotesk leading-normal">
+                      <div className="text-clamp-mobile text-[#002740] text-base font-bold font-space-grotesk leading-normal">
                         Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers
                       </div>
                       <div className="h-4 flex-col justify-center items-start gap-2 flex">
@@ -687,7 +690,7 @@ const ArticleDetail = () => {
           </div>
         </div>
       </div>
-      <div className="w-full bvlq px-[100px] py-20 flex-col justify-start items-center gap-10 flex">
+      <div className="w-full bvlq  py-20 flex-col justify-start items-center gap-10 flex">
         <div className=" text-[#3c3c3c] text-start w-full mb-3 text-5xl text-32 font-bold font-space-grotesk">
           Bài viết liên quan
         </div>
@@ -721,7 +724,7 @@ const ArticleDetail = () => {
                             {item.blog}
                           </div>
                         </div>
-                        <div className=" text-clamp text-clamp-mobile text-[#606670] text-sm font-normal font-open-sans ">
+                        <div className=" text-clamp-mobile text-clamp text-clamp-mobile text-[#606670] text-sm font-normal font-open-sans ">
                           {item.description}
                         </div>
                       </div>

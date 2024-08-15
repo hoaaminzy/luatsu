@@ -8,12 +8,19 @@
   max-height: calc(1.2em * 3); /* Approx height for 3 lines */
   line-height: 1.2em;
 }
+
 .slick-slide {
   margin: 0 13px !important; /* Điều chỉnh giá trị để thay đổi khoảng cách */
+}
+.img-talk .slick-slide {
+  margin: 0px !important;
 }
 .slick-track {
   display: flex !important;
   gap: 20px !important; /* Điều chỉnh khoảng cách giữa các slide */
+}
+.img-talk .slick-track {
+  gap: 0px !important;
 }
 .iframe-containe video {
   position: absolute;
@@ -26,6 +33,12 @@
 .iframe-containe {
   position: relative;
   height: 100vh;
+  overflow: hidden;
+}
+.img-talk {
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
+  border-bottom-right-radius: 16px !important;
   overflow: hidden;
 }
 @media (max-width: 767px) {
@@ -43,6 +56,12 @@
   }
   .desc-apl {
     font-size: 23px !important;
+  }
+  .slick-prev {
+    display: none !important;
+  }
+  .slick-next {
+    display: none !important;
   }
   .about-mobile {
     left: 8% !important;
@@ -65,6 +84,10 @@
   }
   .slick-mobile {
     padding-left: 20px !important;
+    width: 410px !important;
+  }
+  .texxds .row {
+    --bs-gutter-x: 0rem !important;
   }
   .noibat-mobile {
     flex-direction: column !important;
@@ -87,6 +110,7 @@
     flex-direction: column !important;
     width: 100% !important;
   }
+
   .text-talk {
     width: 100% !important;
     font-size: 38px !important;
@@ -96,21 +120,44 @@
   .pls {
     padding: 20px !important;
     border-top-right-radius: 16px;
+    border-bottom-left-radius: 0px !important;
   }
+
   .img-talk {
     height: 550px;
     width: 100% !important;
-    border-top-left-radius: 0px !important;
-    border-top-right-radius: 0px !important;
-    border-bottom-left-radius: 16px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
     overflow: hidden;
+  }
+  .img-talk .slick-slider.slick-initialized {
+    height: 100%;
+  }
+  .img-talk .slick-list {
+    height: 100%;
+  }
+  .img-talk .slick-list .slick-track {
+    height: 100%;
+  }
+  .slick-slide.slick-active.slick-current {
+    height: 100%;
+  }
+
+  .img-talk .slick-slide.slick-active.slick-current div:first-child {
+    height: 100%;
+  }
+  .img-talk .imgsdsd1 {
+    height: 100%;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
   .imgss {
     height: 100%;
     object-fit: cover;
   }
   .new {
-    padding: 0 20px !important;
+    /* padding: 0 20px !important; */
   }
   .new-text {
     font-size: 30px !important;
@@ -131,7 +178,7 @@
     align-items: center;
   }
   .baovecontainer {
-    padding: 0  !important;
+    padding: 0 !important;
     padding-bottom: 50px !important;
     height: max-content !important;
   }
@@ -153,7 +200,10 @@
     min-height: 100vh;
     overflow: hidden;
   }
-
+  .imgsdsd1 {
+    height: 100% !important;
+    border-top-left-radius: 0px;
+  }
   .iframe-containe video {
     position: absolute;
     top: 0;
@@ -161,5 +211,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .flex-col-mpbile {
+    flex-direction: column !important;
   }
 }

@@ -1,27 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ RecruitingLawyers.css";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import briefcase_line from "../../assets/icon/fill/briefcase_line.png";
 import earth_line from "../../assets/icon/fill/earth_line.png";
 import mail_line from "../../assets/icon/fill/mail_line.png";
 import mortarboard_line from "../../assets/icon/fill/mortarboard_line.png";
+import introduce from "../../assets/imgs/introduce1.png";
 import "./ RecruitingLawyers.css";
 const RecruitingLawyers = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <div className="w-1440 w-350 rl  bg-white flex-col justify-start items-start ">
         <Breadcrumb title1={"Nhân sự"} title2={"Luật sư riêng"} />
-        <div className="self-stretch rlcon px-[100px] pt-6 pb-20 flex-col justify-start items-start gap-6 flex">
+        <div className="self-stretch rlcon pt-6 pb-20 flex-col justify-start items-start gap-6 flex">
           <div className="self-stretch rlflex justify-start items-start gap-10 inline-flex">
             <div className="grow shrink basis-0 flex-col justify-start items-start gap-4 inline-flex">
               <div className="self-stretch h-24 flex-col justify-center items-start gap-6 flex">
                 <div className="h-24 flex-col justify-center items-start gap-3 flex">
                   <div className="self-stretch h-14 flex-col justify-center items-start gap-3 flex">
                     <div className="justify-center items-start gap-4 inline-flex">
-                      <div className="w-14 h-14 rounded-full justify-center items-center flex">
-                        <div className="w-14 h-14 relative rounded-full border border-[#f2f4f7]">
-                          <img src={briefcase_line} />
-                        </div>
+                      <div className="w-14 rounded-full justify-center items-center flex">
+                        <img
+                          className="w-16 h-16 rounded-full"
+                          src={introduce}
+                        />
                       </div>
                       <div className="flex-col justify-start items-start gap-1 inline-flex">
                         <div className="self-stretch text-[#344054] text-sm font-normal font-['Inter'] leading-tight">
@@ -130,7 +135,7 @@ const RecruitingLawyers = () => {
                   </div>
                 </div>
               </div>
-              <div className="self-stretch h-60 pt-4 pb-6 border-b border-[#eaecf0] flex-col justify-start items-end gap-4 flex">
+              <div className="self-stretch  pt-4 pb-6 border-b border-[#eaecf0] flex-col justify-start items-end gap-4 flex">
                 <div className="self-stretch justify-start items-center gap-2 inline-flex">
                   <div className="w-6 h-6 justify-center items-center flex">
                     <div className="w-6 h-6 relative">
@@ -285,7 +290,7 @@ const RecruitingLawyers = () => {
             </div>
           </div>
         </div>
-        <div className="w-full px-[100px] py-20 justify-start items-start gap-16 inline-flex why">
+        <div className="w-full  py-20 justify-start items-start gap-16 inline-flex why">
           <div className="w-[440px] why-heading w-350 flex-col justify-start items-start gap-6 inline-flex">
             <div className="w-full text-[#002740] text-5xl text-32 font-bold text-mobile font-space-grotesk leading-[56px]">
               Tại sao chọn <br />
@@ -299,7 +304,8 @@ const RecruitingLawyers = () => {
           </div>
           <div className="grow shrink basis-0 flex-col justify-start items-start gap-6 inline-flex">
             <div className="why-col justify-start items-center gap-6 inline-flex">
-              <div className="items-why grow shrink basis-0 h-[200px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
+              <div className="items-why grow shrink basis-0 h-[210px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
+                {" "}
                 <div className=" text-[#002740] text-[40px] font-medium font-space-grotesk leading-[48px]">
                   01
                 </div>
@@ -307,7 +313,7 @@ const RecruitingLawyers = () => {
                   Chế Độ Đãi Ngộ Hấp Dẫn
                 </div>
               </div>
-              <div className=" items-why grow shrink basis-0 h-[200px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
+              <div className=" items-why grow shrink basis-0 h-[210px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
                 <div className=" text-[#002740] text-[40px] font-medium font-space-grotesk leading-[48px]">
                   02
                 </div>
@@ -315,7 +321,7 @@ const RecruitingLawyers = () => {
                   Nghỉ phép
                 </div>
               </div>
-              <div className="items-why grow shrink basis-0 h-[200px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
+              <div className="items-why grow shrink basis-0 h-[210px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
                 <div className=" text-[#002740] text-[40px] font-medium font-space-grotesk leading-[48px]">
                   03
                 </div>
@@ -333,7 +339,7 @@ const RecruitingLawyers = () => {
                   Cơ Hội Thăng Tiến
                 </div>
               </div>
-              <div className="items-why grow shrink basis-0 h-[200px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
+              <div className="items-why grow shrink basis-0 h-[210px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
                 <div className=" text-[#002740] text-[40px] font-medium font-space-grotesk leading-[48px]">
                   05
                 </div>
@@ -341,7 +347,7 @@ const RecruitingLawyers = () => {
                   Chuyên nghiệp và thân thiện
                 </div>
               </div>
-              <div className="items-why grow shrink basis-0 h-[200px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
+              <div className="items-why grow shrink basis-0 h-[210px] px-4 py-4 rounded-2xl border border-[#48d1cc] flex-col justify-start items-start gap-6 inline-flex">
                 <div className=" text-[#002740] text-[40px] font-medium font-space-grotesk leading-[48px]">
                   06
                 </div>

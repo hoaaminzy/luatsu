@@ -8,10 +8,13 @@ import tinmoi3 from "../../assets/imgs/tinmoi3.png";
 import Slider from "react-slick";
 import ProfessionalBanner from "../../components/ProfessionalBanner/ProfessionalBanner";
 import { Link } from "react-router-dom";
+import ButtonCustom from "../../components/ButtonCustom/ButtonCustom";
 
 const Article = () => {
   const [check, setCheck] = useState(false);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const updateCheck = () => {
       if (window.innerWidth <= 768) {
@@ -136,14 +139,14 @@ const Article = () => {
   return (
     <div>
       <div className="w-1440 w-350  ar  bg-white py-24 flex-col justify-center items-center flex ">
-        <div className=" h-[406px] px-[100px] py-16 flex-col justify-center items-center gap-2.5 flex">
+        <div className=" h-[406px] py-16 flex-col justify-center items-center gap-2.5 flex">
           <div className=" flex-col justify-start items-center gap-12 flex">
             <div className="flex-col justify-start items-center gap-6 flex">
               <div className="flex-col justify-start items-center gap-3 flex">
                 <div className="flexasda justify-start items-center gap-3 inline-flex">
-                  <div className="text-center text-[#002740] text-32 text-[56px] font-bold font-space-grotesk leading-[64px]">
+                  <h1 className="text-center text-[#002740] text-32 text-[56px] font-bold font-space-grotesk leading-[64px]">
                     Tin tức mới nhất tại
-                  </div>
+                  </h1>
                   <div className="mrflex">
                     <ProfessionalBanner title="Apollo Laywers" />
                   </div>
@@ -163,7 +166,7 @@ const Article = () => {
             </div>
           </div>
         </div>
-        <div className="  inf-ccc px-[100px] py-2 flex-col justify-start items-center gap-6 flex">
+        <div className="  inf-ccc  py-2 flex-col justify-start items-center gap-6 flex">
           <div className=" text-[#3c3c3c] mb-3 text-5xl text-32 font-bold font-space-grotesk leading-[56px]">
             Bài viết nổi bật
           </div>
@@ -177,20 +180,26 @@ const Article = () => {
                       key={index}
                       className="w-350 arflex grow shrink basis-0  p-6 bg-[#f0f0f0] rounded-2xl flex"
                     >
-                      <Link to={`/bai-viet/bao-ve-quyen-loi`}>
-                        <img
-                          className="img-if grow shrink basis-0  rounded-lg"
-                          src={item.image}
-                          style={{
-                            width: "100%",
-                            objectFit: "cover",
-                          }}
-                        />
-                      </Link>
+                      <img
+                        className="img-if grow shrink basis-0  rounded-lg"
+                        src={item.image}
+                        style={{
+                          width: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
                       <div className="flex-col justify-start items-start flex  gap-4 ">
                         <div className=" arflex  px-4 flex-col justify-start items-start gap-2 flex">
                           <div className="text-clamp-mobile1 text-[#002740] text-16 text-2xl font-bold font-space-grotesk ">
-                            {item.title}
+                            <Link
+                              to={`/bai-viet/bao-ve-quyen-loi`}
+                              style={{
+                                textDecoration: "none",
+                                color: "#002740",
+                              }}
+                            >
+                              {item.title}
+                            </Link>
                           </div>
                           <div className="w-[344px] flex-date justify-start items-center gap-2 inline-flex">
                             <div className="text-[#606670] text-sm font-normal font-open-sans ">
@@ -393,7 +402,7 @@ const Article = () => {
             </div>
           )}
         </div>
-        <div className="allchose px-[100px] pt-16 flex-wrap gap-3 flex">
+        <div className="allchose  pt-16 flex-wrap gap-3 flex">
           <div className="border-[#1cb0ad] justify-start items-center gap-2.5 flex">
             <div
               className={`${
@@ -404,22 +413,13 @@ const Article = () => {
               Tất cả
             </div>
           </div>
+
           <div className="px-2 border-l justify-start items-center gap-2.5 flex">
             <div
               className={`${
                 check &&
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Luật Đất đai và Bất động sản
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
               Tin tức Pháp lý
             </div>
@@ -429,7 +429,7 @@ const Article = () => {
               className={`${
                 check &&
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
               Tư vấn Pháp luật
             </div>
@@ -439,7 +439,7 @@ const Article = () => {
               className={`${
                 check &&
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
               Hợp đồng và Giao dịch
             </div>
@@ -449,67 +449,7 @@ const Article = () => {
               className={`${
                 check &&
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Luật Doanh nghiệp
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Giải quyết Tranh chấp
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Hôn nhân và Gia đình
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Luật Hàng hải và Bảo hiểm Quốc tế
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Luật Lao động
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Luật Hình sự
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
               Quyền lợi Người Nước ngoài
             </div>
@@ -519,7 +459,79 @@ const Article = () => {
               className={`${
                 check &&
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              Giải quyết Tranh chấp
+            </div>
+          </div>
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              Hôn nhân và Gia đình
+            </div>
+          </div>
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              Luật Đất đai và Bất động sản
+            </div>
+          </div>
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              Luật Doanh nghiệp
+            </div>
+          </div>
+
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              Luật Hàng hải và Bảo hiểm Quốc tế
+            </div>
+          </div>
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              Luật Lao động
+            </div>
+          </div>
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              Luật Hình sự
+            </div>
+          </div>
+
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
               Luật Sở hữu Trí tuệ
             </div>
@@ -568,11 +580,13 @@ const Article = () => {
               );
             })}
           </div>
-
-          <div className="px-10 py-3 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-xl justify-center items-center gap-3 inline-flex">
-            <div className="text-white text-base font-bold font-space-grotesk leading-normal">
-              Xem thêm
-            </div>
+          <div>
+            <ButtonCustom
+              color="text-white"
+              title="Xem thêm"
+              from="#40e0d0"
+              to="#48d1cc"
+            />
           </div>
         </div>
       </div>

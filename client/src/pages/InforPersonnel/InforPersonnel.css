@@ -101,4 +101,10 @@
     left: -32px;
     background-color: #ccc;
   }
+  .flexhoc {
+    flex-direction: column !important;
+    display: flex;
+    align-items: start !important;
+    justify-content: start !important;
+  }
 }
