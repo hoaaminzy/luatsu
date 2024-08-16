@@ -10,7 +10,9 @@ import tinmoi3 from "../../assets/imgs/tinmoi1.png";
 import eye2 from "../../assets/icon/fill/eye_2_line.png";
 import time from "../../assets/icon/fill/time_line.png";
 import ButtonCustom from "../../components/ButtonCustom/ButtonCustom";
+import { useTranslationContext } from "../../context/TranslationContext";
 const ArticleDetail = () => {
+  const t = useTranslationContext();
   const [check, setCheck] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,100 +42,88 @@ const ArticleDetail = () => {
 
   const dataAllLuat = [
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi1,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi2,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi3,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi1,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi2,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi3,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi1,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi2,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi3,
       date: "03/08/2024",
       blog: "Luật sở hữu trí tuệ",
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi1,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi2,
       date: "03/08/2024",
-      blog: "Luật doanh nghiệp",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi3,
       date: "03/08/2024",
-      blog: "Tư vấn Pháp Luật",
+      blog: t("ttphaply"),
     },
   ];
   return (
@@ -141,8 +131,8 @@ const ArticleDetail = () => {
       <div className="py-6 flex-col justify-start items-start gap-2.5 flex">
         <Breadcrumb
           slug={"bai-viet"}
-          title1={"Bài viết"}
-          title2={"Tranh chấp giữa các cổ đông trong công ty"}
+          title1={t("baiviet")}
+          title2={t("baovequyenloi")}
         />
       </div>
       <div className="w-1440 w-350 adcon  border-t border-[#3c3c3c]/20 gap-10 flex">
@@ -150,7 +140,7 @@ const ArticleDetail = () => {
           <div className=" flex-col justify-start items-start gap-6 flex">
             <div className=" justify-start items-start gap-6 flex">
               <div className="grow shrink basis-0 text-[#3c3c3c] text-32 text-[40px] font-bold font-space-grotesk leading-[48px]">
-                Tranh chấp giữa các cổ đông trong công ty cổ phần
+              {t("baovequyenloi")}
               </div>
             </div>
             <div className=" justify-start items-center gap-6 inline-flex">

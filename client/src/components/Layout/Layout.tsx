@@ -23,7 +23,7 @@ export default function Layout() {
       <main className="">
         <Outlet />
       </main>
-      <Footer t={t} />
+      <Footer />
     </div>
   );
 }

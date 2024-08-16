@@ -4,7 +4,7 @@ import "./header.css";
 import { TFunction } from "i18next";
 interface HeaderProps {
   type?: boolean;
-  changeLanguage?: (language: string) => void;
+  changeLanguage: (language: string) => void;
   t?: TFunction;
 }
 

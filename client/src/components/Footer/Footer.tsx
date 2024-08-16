@@ -15,11 +15,6 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import "./Footer.css";
 import { useTranslationContext } from "../../context/TranslationContext";
-// import { TFunction } from "i18next";
-
-interface FooterProps {
-  // t?: TFunction;
-}
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -33,14 +28,22 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-const Footer: React.FC<FooterProps> = () => {
+const Footer: React.FC = () => {
   const t = useTranslationContext();
   const isMobile = useIsMobile();
-  const [expandedSection, setExpandedSection] = useState(null);
-  const handleToggle = (section) => {
+  type SectionType =
+    | "headquarters"
+    | "branch1"
+    | "branch2"
+    | "service"
+    | "connect"
+    | "branch3";
+  const [expandedSection, setExpandedSection] = useState<SectionType | null>(
+    null
+  );
+  const handleToggle = (section: SectionType) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
-
   if (isMobile) {
     return (
       <div
@@ -73,11 +76,14 @@ const Footer: React.FC<FooterProps> = () => {
                   className="self-stretch flex-col justify-start items-start gap-4 flex"
                   key={section}
                 >
-                  <div className="add" onClick={() => handleToggle(section)}>
+                  <div
+                    className="add"
+                    onClick={() => handleToggle(section as SectionType)}
+                  >
                     <div className="text-add self-stretch text-[#002740] text-20 font-bold font-space-grotesk leading-9">
                       {section === "headquarters" && t("trusochinh")}
                       {section === "branch1" && t("chinhanh") + " " + "1"}
-                    {section === "branch2" && t("chinhanh") + " " + "2"}
+                      {section === "branch2" && t("chinhanh") + " " + "2"}
                       {section === "service" && t("dichvu")}
 
                       {section === "connect" && t("tuyendung")}
@@ -386,7 +392,7 @@ const Footer: React.FC<FooterProps> = () => {
               className="flex-col justify-start items-start gap-6 inline-flex"
             >
               <div className="pt-4 self-stretch flex-col justify-start items-start gap-4 flex">
-                <div className="add" onClick={() => handleToggle("payment")}>
+                <div className="add">
                   <div className="text-add self-stretch text-[#002740] text-20 font-bold font-space-grotesk leading-9">
                     {t("chapnhantt")}
                   </div>
