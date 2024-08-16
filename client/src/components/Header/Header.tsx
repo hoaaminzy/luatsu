@@ -13,7 +13,6 @@ const Header: React.FC<HeaderProps> = ({ t, type, changeLanguage }) => {
   const [slidesToShow, setSlidesToShow] = useState(false);
   const [toggleLanguage, setToggleLanguage] = useState<string>("vn");
   const navigate = useNavigate();
-
   useEffect(() => {
     const updateSlidesToShow = () => {
       if (window.innerWidth <= 768) {
@@ -28,13 +27,16 @@ const Header: React.FC<HeaderProps> = ({ t, type, changeLanguage }) => {
       window.removeEventListener("resize", updateSlidesToShow);
     };
   }, []);
+
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") || "vn";
-    setToggleLanguage(savedLanguage);
-    if (changeLanguage) {
+
+    if (savedLanguage !== toggleLanguage) {
+      setToggleLanguage(savedLanguage);
       changeLanguage(savedLanguage);
     }
-  }, [changeLanguage]);
+  }, [changeLanguage, toggleLanguage]);
+
   const translate = (key: string) => (t ? t(key) : key);
 
   const dataNav = [
@@ -138,9 +140,9 @@ const Header: React.FC<HeaderProps> = ({ t, type, changeLanguage }) => {
               <div className="flex ">
                 <div className="flex items-center icon-choose ">
                   <div
-                    onClick={() => setToggleLanguage(true)}
+                    onClick={() => handleLanguageChange("en")}
                     className={`px-3 cursor-pointer ${
-                      toggleLanguage
+                      toggleLanguage === "en"
                         ? "bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] py-2 rounded-lg text-white"
                         : "bg-[#e7ecf1] text-[#002740] py-0.5"
                     } rounded-lg flex-col justify-center items-center gap-2.5 inline-flex`}
@@ -151,9 +153,9 @@ const Header: React.FC<HeaderProps> = ({ t, type, changeLanguage }) => {
                   </div>
 
                   <div
-                    onClick={() => setToggleLanguage(false)}
+                    onClick={() => handleLanguageChange("vn")}
                     className={`px-3 cursor-pointer ${
-                      !toggleLanguage
+                      toggleLanguage === "vn"
                         ? "bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] text-white py-2 rounded-lg"
                         : "bg-[#e7ecf1] py-0.5"
                     } rounded-lg flex-col justify-center items-center gap-2.5 inline-flex`}

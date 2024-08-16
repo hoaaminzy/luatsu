@@ -253,7 +253,11 @@ export default function Service() {
         className="w-1440 w-350  d-flex bg-white flex-col gttn"
         style={{ paddingTop: "100px" }}
       >
-        <div className="introContainer w-full  py-16 flex-col justify-center items-center gap-2.5 flex">
+        <div
+          className={`introContainer w-full  py-16 flex-col justify-center items-center ${
+            check === true ? "gap-2.5" : "gap-2.5"
+          }  flex`}
+        >
           <div className="w-full flex-col justify-center items-center gap-12 fix-gap flex">
             <div className="w-full flex-col justify-center items-center gap-2 flex introo">
               <div className="text-intro text-center text-[#002740] text-[56px] flex align-items-center justify-center font-bold font-space-grotesk ">

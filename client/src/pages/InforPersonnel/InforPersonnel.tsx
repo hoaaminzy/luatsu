@@ -1,4 +1,3 @@
-import React from "react";
 import "./InforPersonnel.css";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";

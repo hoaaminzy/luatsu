@@ -42,9 +42,9 @@ import {
 import { useTranslationContext } from "../../context/TranslationContext";
 export default function HomePage() {
   const t = useTranslationContext();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
   const [slidesToShow, setSlidesToShow] = useState(3.5);
   const [check, setCheck] = useState(false);
   const [activeSlide, setActiveSlide] = useState<number>(0);
@@ -347,7 +347,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="texxds">
-          <div className="w-1440 w-350 pad-mobile">
+          <div className="w-1440 w-350 ">
             <div
               ref={refA4}
               className={` ${
@@ -355,11 +355,19 @@ export default function HomePage() {
               } w-full pt-[300px] flex-col justify-start items-start gap-10 flex`}
             >
               <div className="w-350 w-1440 justify-between items-center flex ">
-                <div className="w-350 w-1440 flex-col justify-start items-start gap-4 ">
+                <div
+                  className={` w-350 w-1440 flex-col flex ${
+                    check === true
+                      ? "pt-20 justify-center items-center"
+                      : "justify-start items-start"
+                  }   gap-4 `}
+                >
                   <div className="serviceus text-32 text-48 text-black text-5xl font-bold font-space-grotesk ">
                     {t("dichvucuachungtoi")}
                   </div>
-                  <div className="text-[#606670] text-16 text-base font-normal font-open-sans leading-7">
+                  <div
+                    className={`text-[#606670] ${check === true ? 'text-center ' : " mt-2 "}  text-16 text-base font-normal font-open-sans leading-7`}
+                  >
                     {t("timkiemtrogiup")}
                   </div>
                 </div>
@@ -410,7 +418,7 @@ export default function HomePage() {
               className=" w-1440 absolute justify-center flex  items-center  noibat noibat-mobile"
             >
               <div className=" hoverScale  pl-3.5 pr-[13px] py-[11px] justify-center items-center flex">
-                <div className="px-6 pt-8 pb-16 bg-white rounded-2xl shadow justify-start items-center gap-6 inline-flex">
+                <div className="px-6 pt-8 h-[220px]  pb-16 bg-white rounded-2xl shadow justify-start items-center gap-6 inline-flex">
                   <div className="text-[#002740] text-[56px] font-bold font-space-grotesk leading-[64px]">
                     01
                   </div>
@@ -430,7 +438,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className=" hoverScale  pl-3.5 pr-[13px] py-[11px] justify-center items-center flex">
-                <div className="px-6 pt-8 pb-16 bg-white rounded-2xl shadow justify-start items-center gap-6 inline-flex">
+                <div className="px-6 pt-8 h-[220px]  pb-16 bg-white rounded-2xl shadow justify-start items-center gap-6 inline-flex">
                   <div className="text-[#002740] text-[56px] font-bold font-space-grotesk leading-[64px]">
                     02
                   </div>
@@ -450,7 +458,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className=" hoverScale  pl-[13.50px] pr-[12.50px] py-[11px] justify-center items-center flex">
-                <div className="px-6 pt-8 pb-16 bg-white rounded-2xl shadow justify-start items-center gap-6 inline-flex">
+                <div className="px-6 pt-8 h-[220px]  pb-16 bg-white rounded-2xl shadow justify-start items-center gap-6 inline-flex">
                   <div className="text-[#002740] text-[56px] font-bold font-space-grotesk leading-[64px]">
                     03
                   </div>
@@ -555,12 +563,12 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="w-1440 w-350 pt-18">
+        <div className={`w-1440 w-350 ${check === true ? "py-10" : "py-24"} `}>
           <div
             ref={refA6}
             className={` ${
               inViewA6 ? "animate-slide-bottom" : ""
-            }   py-28 flex-col  items-center gap-10 flex new`}
+            }   flex-col  items-center gap-10 flex new`}
           >
             <div className="w-1440 w-350 mt-hp">
               <div className="w-full flex-col justify-center items-center gap-6 flex">
@@ -655,14 +663,14 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="w-1440 w-350 zxc pt-18">
+        <div className="w-1440 w-350 zxc">
           <div
             ref={refA5}
             className={` ${
               inViewA5 ? "animate-slide-bottom" : ""
             } w-1440 w-350 h-max baovecontainer flex-col justify-start items-start gap-2.5 pb-20 flex`}
           >
-            <div className=" baove w-350 w-1440  px-[200px] py-16 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-2xl shadow flex-col justify-start items-center flex">
+            <div className=" baove w-350 w-1440  px-[200px] py-14 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-2xl shadow flex-col justify-start items-center flex">
               <div className="asd flex-col justify-center items-center gap-6 flex">
                 <div
                   className="text-bvvvv text-center text-white text-5xl text-32 font-bold font-space-grotesk "

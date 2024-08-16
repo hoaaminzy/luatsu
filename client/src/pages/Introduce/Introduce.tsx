@@ -25,7 +25,7 @@ const Introduce = () => {
   const t = useTranslationContext();
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const handleOpenModal = () => setIsModalOpen(true);
+  const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
   const { ref: refA1, inView: inViewA1 } = useInView({ triggerOnce: true });
   const { ref: refA2, inView: inViewA2 } = useInView({ triggerOnce: true });
@@ -99,31 +99,37 @@ const Introduce = () => {
                   <h1 className="text-32 text-58 text-intro text-center text-[#002740] text-[56px] font-bold font-space-grotesk leading-[64px]">
                     {t("dhphaply")}
                   </h1>
-                  <div className="text-16 desc-intro  pb-16 w-[654px] text-center text-[#606670] text-base font-normal font-open-sans leading-7">
+                  <div className="text-16 desc-intro   w-[654px] text-center text-[#606670] text-base font-normal font-open-sans leading-7">
                     {t("voitamnhindaihan")}
+                  </div>
+                  <div>
+                    <ButtonCustom
+                      title={t("lhngay")}
+                      from="#40e0d0"
+                      to="#48d1cc"
+                      color="text-white"
+                      onClick={() => {
+                        navigate("/lien-he");
+                      }}
+                    />
                   </div>
                 </div>
               </div>
-              <ButtonCustom
-                title={t("lhngay")}
-                from="#40e0d0"
-                to="#48d1cc"
-                color="text-white"
-                onClick={() => {
-                  navigate("/lien-he");
-                }}
-              />
             </div>
           </div>
-          <div className="dvnoibat w-full  py-20 justify-center items-center gap-10 inline-flex">
-            <Row className="">
+          <div
+            className={`dvnoibat w-full  ${
+              check === true ? "" : "py-14"
+            } justify-center items-center gap-10 flex`}
+          >
+            <Row>
               <Col
                 sm={6}
                 ref={refA1}
                 className={`${inViewA1 ? "animate-slide-bottom" : ""}`}
               >
                 <div className=" flex-col gap-4 flex">
-                  <div className="text-16 text-nbb text-[#9ea8b6] text-2xl font-bold font-space-grotesk">
+                  <div className="text-16 mb-4 text-nbb text-[#9ea8b6] text-2xl font-bold font-space-grotesk">
                     {t("nhungdvnoibat")}
                   </div>
                   <div
@@ -197,7 +203,7 @@ const Introduce = () => {
             </Row>
           </div>
         </div>
-        <div className="dn-us py-20 flex-col justify-center items-center gap-16 flex">
+        <div className="dn-us pt-10 flex-col justify-center items-center gap-16 flex">
           <div
             ref={refA3}
             className={`${
@@ -334,7 +340,7 @@ const Introduce = () => {
             </Row>
           </div>
 
-          <div className="mt-20">
+          <div className={`${check === true ? "" : "mt-12"}`}>
             <ButtonCustom
               title="Xem chi tiết"
               from="#40e0d0"
@@ -344,8 +350,8 @@ const Introduce = () => {
             />
           </div>
         </div>
-        <div className="w-1440 w-350">
-          <div className="gtkb w-full py-20 flex gap-5  ">
+        <div className={`w-1440 w-350 ${check === true ? "pt-14" : ""}`}>
+          <div className="gtkb w-full py-24 flex gap-5  ">
             <div
               ref={refA5}
               className={`${inViewA5 ? "animate-slide-bottom" : ""} flex-1`}
@@ -492,7 +498,7 @@ const Introduce = () => {
             </div>
           </div>
         </div>
-        <div className="w-1440 w-350 zxc pt-16">
+        <div className="w-1440 w-350 zxc pt-12">
           <div
             ref={refA5}
             className={` ${
@@ -516,6 +522,7 @@ const Introduce = () => {
                     from="#fff"
                     to="#fff"
                     color="text-black"
+                    onClick={handleOpenModal}
                   />
                 </div>
               </div>

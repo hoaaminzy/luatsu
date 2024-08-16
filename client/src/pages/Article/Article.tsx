@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import "./Article.css";
 import { Input } from "antd";
 import { IoSearch } from "react-icons/io5";
@@ -9,8 +9,9 @@ import Slider from "react-slick";
 import ProfessionalBanner from "../../components/ProfessionalBanner/ProfessionalBanner";
 import { Link } from "react-router-dom";
 import ButtonCustom from "../../components/ButtonCustom/ButtonCustom";
-
+import { useTranslationContext } from "../../context/TranslationContext";
 const Article = () => {
+  const t = useTranslationContext();
   const [check, setCheck] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,100 +41,88 @@ const Article = () => {
   };
   const dataAllLuat = [
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi1,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi2,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi3,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi1,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi2,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi3,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi1,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi2,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi3,
       date: "03/08/2024",
       blog: "Luật sở hữu trí tuệ",
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi1,
       date: "03/08/2024",
-      blog: "Tin tức Pháp Lý",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi2,
       date: "03/08/2024",
-      blog: "Luật doanh nghiệp",
+      blog: t("ttphaply"),
     },
     {
-      title: "Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers",
-      description:
-        "Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp lý.",
+      title: t("baovequyenloi"),
+      description: t("desBaoVeQuyenLoi"),
       image: tinmoi3,
       date: "03/08/2024",
-      blog: "Tư vấn Pháp Luật",
+      blog: t("ttphaply"),
     },
   ];
   return (
@@ -145,7 +134,7 @@ const Article = () => {
               <div className="flex-col justify-start items-center gap-3 flex">
                 <div className="flexasda justify-start items-center gap-3 inline-flex">
                   <h1 className="text-center text-[#002740] text-32 text-[56px] font-bold font-space-grotesk leading-[64px]">
-                    Tin tức mới nhất tại
+                    {t("tintucmoinhat")}
                   </h1>
                   <div className="mrflex">
                     <ProfessionalBanner title="Apollo Laywers" />
@@ -153,8 +142,7 @@ const Article = () => {
                 </div>
               </div>
               <div className="w-[654px] w-350 flex flex-col gap-5 text-center text-[#606670] text-base font-normal font-open-sans leading-7">
-                Tham gia đội ngũ Apolo Lawyers và phát triển sự nghiệp pháp lý
-                của bạn trong môi trường chuyên nghiệp và chất lượng.
+                {t("tgdoingu")}
                 <div className="relative">
                   <Input
                     placeholder="Tìm kiếm"
@@ -168,7 +156,7 @@ const Article = () => {
         </div>
         <div className="  inf-ccc  py-2 flex-col justify-start items-center gap-6 flex">
           <div className=" text-[#3c3c3c] mb-3 text-5xl text-32 font-bold font-space-grotesk leading-[56px]">
-            Bài viết nổi bật
+            {t("bvnoibat")}
           </div>
 
           {check === true ? (
@@ -240,7 +228,7 @@ const Article = () => {
                           className="text-[#002740]"
                           to={`/bai-viet/bao-ve-quyen-loi`}
                         >
-                          Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers
+                          {t("baovequyenloi")}
                         </Link>
                       </div>
                       <div className="w-[344px] justify-start items-center gap-2 inline-flex">
@@ -249,18 +237,11 @@ const Article = () => {
                         </div>
                         <div className="w-1 h-1 bg-[#1cb0ad] rounded-full" />
                         <div className="text-[#1cb0ad] text-xs font-semibold font-open-sans ">
-                          Hợp đồng và Giao dịch
+                          {t("ttphaply")}
                         </div>
                       </div>
                       <div className="text-clamp text-[#606670] text-sm font-normal font-open-sans ">
-                        Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi
-                        nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là
-                        vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật
-                        uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng
-                        trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh
-                        nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định
-                        vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp
-                        lý.
+                        {t("desBaoVeQuyenLoi")}
                       </div>
                     </div>
                   </div>
@@ -284,7 +265,7 @@ const Article = () => {
                           className="text-[#002740]"
                           to={`/bai-viet/bao-ve-quyen-loi`}
                         >
-                          Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers
+                          {t("baovequyenloi")}
                         </Link>
                       </div>
                       <div className="w-[344px] justify-start items-center gap-2 inline-flex">
@@ -293,18 +274,11 @@ const Article = () => {
                         </div>
                         <div className="w-1 h-1 bg-[#1cb0ad] rounded-full" />
                         <div className="text-[#1cb0ad] text-xs font-semibold font-open-sans ">
-                          Hợp đồng và Giao dịch
+                          {t("ttphaply")}
                         </div>
                       </div>
                       <div className="text-clamp text-[#606670] text-sm font-normal font-open-sans ">
-                        Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi
-                        nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là
-                        vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật
-                        uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng
-                        trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh
-                        nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định
-                        vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp
-                        lý.
+                        {t("desBaoVeQuyenLoi")}
                       </div>
                     </div>
                   </div>
@@ -329,7 +303,7 @@ const Article = () => {
                           className="text-[#002740]"
                           to={`/bai-viet/bao-ve-quyen-loi`}
                         >
-                          Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers
+                          {t("baovequyenloi")}
                         </Link>
                       </div>
                       <div className="w-[344px] justify-start items-center gap-2 inline-flex">
@@ -338,18 +312,11 @@ const Article = () => {
                         </div>
                         <div className="w-1 h-1 bg-[#1cb0ad] rounded-full" />
                         <div className="text-[#1cb0ad] text-xs font-semibold font-open-sans ">
-                          Tư vấn Pháp luật
+                          {t("ttphaply")}
                         </div>
                       </div>
                       <div className="text-clamp text-[#606670] text-sm font-normal font-open-sans ">
-                        Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi
-                        nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là
-                        vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật
-                        uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng
-                        trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh
-                        nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định
-                        vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp
-                        lý.
+                        {t("desBaoVeQuyenLoi")}
                       </div>
                     </div>
                   </div>
@@ -373,7 +340,7 @@ const Article = () => {
                           className="text-[#002740]"
                           to={`/bai-viet/bao-ve-quyen-loi`}
                         >
-                          Bảo vệ Quyền lợi Pháp lý với Apolo Lawyers
+                          {t("baovequyenloi")}
                         </Link>
                       </div>
                       <div className="w-[344px] justify-start items-center gap-2 inline-flex">
@@ -382,18 +349,11 @@ const Article = () => {
                         </div>
                         <div className="w-1 h-1 bg-[#1cb0ad] rounded-full" />
                         <div className="text-[#1cb0ad] text-xs font-semibold font-open-sans ">
-                          Tin tức Pháp lý
+                          {t("ttphaply")}
                         </div>
                       </div>
                       <div className="text-clamp text-[#606670] text-sm font-normal font-open-sans ">
-                        Trong bối cảnh pháp luật ngày càng phức tạp và thay đổi
-                        nhanh chóng, việc có một đối tác pháp lý đáng tin cậy là
-                        vô cùng quan trọng. Apolo Lawyers tự hào là công ty luật
-                        uy tín, chuyên nghiệp, luôn sẵn sàng hỗ trợ khách hàng
-                        trong mọi vấn đề pháp lý. Với đội ngũ luật sư giàu kinh
-                        nghiệm và tận tâm, Apolo Lawyers đã và đang khẳng định
-                        vị thế của mình trong lĩnh vực tư vấn và tranh tụng pháp
-                        lý.
+                        {t("desBaoVeQuyenLoi")}
                       </div>
                     </div>
                   </div>
@@ -410,7 +370,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#1cb0ad] text-base font-semibold font-open-sans leading-normal`}
             >
-              Tất cả
+              {t("all")}
             </div>
           </div>
 
@@ -421,7 +381,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Tin tức Pháp lý
+              {t("ttphaply")}
             </div>
           </div>
           <div className="px-2 border-l justify-start items-center gap-2.5 flex">
@@ -431,7 +391,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Tư vấn Pháp luật
+              {t("tuvanphaply")}
             </div>
           </div>
           <div className="px-2 border-l justify-start items-center gap-2.5 flex">
@@ -441,7 +401,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Hợp đồng và Giao dịch
+              {t("hdgd")}
             </div>
           </div>
           <div className="px-2 border-l justify-start items-center gap-2.5 flex">
@@ -451,7 +411,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Quyền lợi Người Nước ngoài
+              {t("qlnguoinuocngoai")}
             </div>
           </div>
           <div className="px-2 border-l justify-start items-center gap-2.5 flex">
@@ -461,7 +421,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Giải quyết Tranh chấp
+              {t("gqtranhchap")}
             </div>
           </div>
           <div className="px-2 border-l justify-start items-center gap-2.5 flex">
@@ -471,7 +431,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Hôn nhân và Gia đình
+              {t("hnhanvagiadinh")}
             </div>
           </div>
           <div className="px-2 border-l justify-start items-center gap-2.5 flex">
@@ -481,7 +441,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Luật Đất đai và Bất động sản
+              {t("datdaivabds")}
             </div>
           </div>
           <div className="px-2 border-l justify-start items-center gap-2.5 flex">
@@ -491,38 +451,7 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Luật Doanh nghiệp
-            </div>
-          </div>
-
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Luật Hàng hải và Bảo hiểm Quốc tế
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Luật Lao động
-            </div>
-          </div>
-          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
-            <div
-              className={`${
-                check &&
-                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
-              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
-            >
-              Luật Hình sự
+              {t("luatdanhnghiep")}
             </div>
           </div>
 
@@ -533,7 +462,38 @@ const Article = () => {
                 "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
               } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
             >
-              Luật Sở hữu Trí tuệ
+              {t("luathhqt")}
+            </div>
+          </div>
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              {t("luatlaodong")}
+            </div>
+          </div>
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              {t("luathinhsu")}
+            </div>
+          </div>
+
+          <div className="px-2 border-l justify-start items-center gap-2.5 flex">
+            <div
+              className={`${
+                check &&
+                "border border-collapsep-2 p-3 rounded-xl  border-[#1cb0ad]"
+              } text-[#002740] text-base font-semibold font-open-sans leading-normal`}
+            >
+              {t("luatsohuutt")}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import PageMeta from "../../components/PageMeta/PageMeta";
 import ProfessionalBanner from "../../components/ProfessionalBanner/ProfessionalBanner";
@@ -6,10 +6,13 @@ import ButtonCustom from "../../components/ButtonCustom/ButtonCustom";
 import contact1 from "../../assets/imgs/ct.png";
 import introduce2 from "../../assets/imgs/introduce2.png";
 import { Select } from "antd";
-
+import { useTranslationContext } from "../../context/TranslationContext";
 import "./Contact.css";
+// import { useNavigate } from "react-router-dom";
 export default function Contact() {
-   useEffect(() => {
+  const t = useTranslationContext();
+  // const navigate = useNavigate;
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   // const [check, setCheck] = useState(false);
@@ -46,24 +49,23 @@ export default function Contact() {
               <div className="flex-col w-full justify-center items-center gap-3 flex">
                 <div className="w-full contactsasd  justify-between items-center flex ">
                   <div className="text-center text-asdccc pr-20 text-[#002740] text-[56px] text-32 font-bold font-space-grotesk leading-[64px]">
-                    Hãy để Apolo Lawyers
+                    {t("haydeap")}
                   </div>
                   <div style={{ marginLeft: "-140px" }}>
-                    <ProfessionalBanner title="Đồng hành" />
+                    <ProfessionalBanner title={t("donghanh")} />
                   </div>
                   <div className="text-center text-[#002740] text-32 text-[56px] font-bold font-space-grotesk leading-[64px]">
-                    cùng bạn
+                    {t("cungban")}
                   </div>
                 </div>
               </div>
               <div className="w-[654px] w-350 text-center text-[#606670] text-base font-normal font-open-sans leading-7">
-                Chúng tôi cam kết bảo vệ quyền lợi và mang lại giải pháp pháp lý
-                tối ưu cho bạn.
+                {t("ctck")}
               </div>
             </div>
             <ButtonCustom
               color="text-white"
-              title="Liên hệ ngay"
+              title={t("lhngay")}
               to="#48d1cc"
               from="#40e0d0"
             />
@@ -80,8 +82,7 @@ export default function Contact() {
             <div className="flex-col justify-start items-start gap-6 flex">
               <div className=" flex-col justify-start items-start gap-4 flex">
                 <div className="text-contcat text-[#002740] text-[28px] font-bold font-space-grotesk leading-9">
-                  Chúng tôi sẽ liên hệ vào thông tin bạn gửi, hãy điền vào form
-                  bên dưới
+                  {t("ctslh")}
                 </div>
               </div>
             </div>
@@ -98,7 +99,7 @@ export default function Contact() {
                     className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 
                     peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
                   >
-                    Họ tên
+                    {t("hoten")}
                   </label>
                 </div>
                 <div className="relative w-full">
@@ -126,7 +127,7 @@ export default function Contact() {
                     className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 
                     peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
                   >
-                    Số điện thoại
+                    {t("sdt")}
                   </label>
                 </div>
                 <div className="w-full h-9 ">
@@ -135,7 +136,7 @@ export default function Contact() {
                     className="bg-[#f3f3f3] h-full text-gray-900"
                     style={{ width: "100%" }}
                     dropdownStyle={{ background: "#f3f3f3" }}
-                    placeholder="Chọn dịch vụ"
+                    placeholder={t("alldv")}
                     optionFilterProp="label"
                     filterSort={(optionA, optionB) =>
                       (optionA?.label ?? "")
@@ -177,7 +178,7 @@ export default function Contact() {
                     placeholder=""
                   ></textarea>
                   <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-transparent  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                    Nội dung tin nhắn
+                    {t("ndtn")}
                   </label>
                 </div>
               </div>
@@ -222,12 +223,12 @@ export default function Contact() {
             </div>
             <div className=" flex-col justify-start items-start gap-4 flex">
               <div className=" text-24m text-[#9ea8b6] text-[28px] font-bold font-space-grotesk leading-9">
-                Trụ sở chính
+                {t("trusochinh")}
               </div>
               <div className=" flex-col justify-start items-start gap-2 flex">
                 <div className="">
                   <span className="text-[#138e8e] text-16 text-xl font-bold font-open-sans leading-7">
-                    Địa chỉ:
+                    {t("diachi")}:
                   </span>
                   <span className="text-[#1cb0ad] text-16 text-xl font-normal font-open-sans leading-7">
                     {" "}
@@ -237,7 +238,7 @@ export default function Contact() {
                 </div>
                 <div className="">
                   <span className="text-[#138e8e] text-16 text-xl font-bold font-open-sans leading-7">
-                    Số điện thoại:
+                    {t("sdt")}:
                   </span>
                   <span className="text-[#1cb0ad]  text-16 text-xl font-normal font-open-sans leading-7">
                     {" "}
@@ -248,12 +249,12 @@ export default function Contact() {
             </div>
             <div className="  flex-col justify-start items-start gap-4 flex">
               <div className="text-24m text-[#9ea8b6] text-[28px] font-bold font-space-grotesk leading-9">
-                Chi nhánh 1
+                {t("chinhanh")} 1
               </div>
               <div className="flex-col justify-start items-start gap-2 flex">
                 <div className="">
                   <span className="text-16 text-[#138e8e] text-xl font-bold font-open-sans leading-7">
-                    Địa chỉ:
+                    {t("diachi")}:
                   </span>
                   <span className="text-[#1cb0ad] text-16 text-xl font-normal font-open-sans leading-7">
                     {" "}
@@ -262,7 +263,7 @@ export default function Contact() {
                 </div>
                 <div className="">
                   <span className="text-[#138e8e] text-16 text-xl font-bold font-open-sans leading-7">
-                    Số điện thoại:
+                    {t("sdt")}:
                   </span>
                   <span className="text-[#1cb0ad] text-16 text-xl font-normal font-open-sans leading-7">
                     {" "}
@@ -273,12 +274,12 @@ export default function Contact() {
             </div>
             <div className="  flex-col justify-start items-start gap-4 flex">
               <div className="text-24m text-[#9ea8b6] text-[28px] font-bold font-space-grotesk leading-9">
-                Chi nhánh 2
+                {t("chinhanh")} 2
               </div>
               <div className="  flex-col justify-start items-start gap-2 flex">
                 <div className="">
                   <span className="text-16 text-[#138e8e] text-xl font-bold font-open-sans leading-7">
-                    Địa chỉ:
+                    {t("diachi")}:
                   </span>
                   <span className="text-16 text-[#1cb0ad] text-xl font-normal font-open-sans leading-7">
                     {" "}
@@ -288,7 +289,7 @@ export default function Contact() {
                 </div>
                 <div className="">
                   <span className="text-16 text-[#138e8e] text-xl font-bold font-open-sans leading-7">
-                    Số điện thoại:
+                    {t("sdt")}:
                   </span>
                   <span className="text-16 text-[#1cb0ad] text-xl font-normal font-open-sans leading-7">
                     {" "}
@@ -333,22 +334,20 @@ export default function Contact() {
           <div className=" w-full flex-col justify-start items-start gap-6 flex">
             <div className=" w-full flex-col justify-start items-start gap-4 flex">
               <div className=" w-full text-[#002740] text-32 text-5xl font-bold font-space-grotesk leading-[56px]">
-                Cam Kết Của Chúng Tôi
+                {t("camketcuachungtoi")}
               </div>
             </div>
-            <div className="w-[540.32px] text-16 textck w-350 text-black text-base font-normal font-['Inter'] leading-normal">
-              Chúng tôi cam kết cung cấp các dịch vụ pháp lý chất lượng, nhanh
-              chóng và hiệu quả. Chúng tôi luôn sẵn sàng lắng nghe và giải quyết
-              mọi vấn đề pháp lý của bạn với tinh thần trách nhiệm cao nhất. Hãy
-              để Apolo Lawyers trở thành đối tác pháp lý tin cậy của bạn!
+            <div className="w-[540.32px] text-16 textck w-350 text-black text-base font-normal font-open-sans leading-normal">
+              {t("chungtoicamketcacdv")}
             </div>
           </div>
           <div className="w-full buttoncontact">
             <ButtonCustom
-              color="text-white"
-              title="Liên hệ ngay"
-              to="#48d1cc"
+              title={t("lhngay")}
               from="#40e0d0"
+              to="#48d1cc"
+              color="text-white"
+              // onClick={() => navigate("/lien-he")}
             />
           </div>
         </div>

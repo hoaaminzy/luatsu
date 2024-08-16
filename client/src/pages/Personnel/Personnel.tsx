@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Personnel.css";
 import ProfessionalBanner from "../../components/ProfessionalBanner/ProfessionalBanner";
 import { Col, Row } from "react-bootstrap";
@@ -12,11 +12,20 @@ import introduceperson1 from "../../assets/imgs/introduceperson1.png";
 import introduceperson2 from "../../assets/imgs/introduceperson2.png";
 import introduceperson3 from "../../assets/imgs/introduceperson3.png";
 import introduceperson4 from "../../assets/imgs/introduceperson4.png";
+import { useTranslationContext } from "../../context/TranslationContext";
+import { useNavigate } from "react-router-dom";
+import Modal from "../../components/Model/Model";
+
 const Personnel = () => {
+  const navigate = useNavigate();
+  const t = useTranslationContext();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
   const { ref: refA1, inView: inViewA1 } = useInView({ triggerOnce: true });
   const { ref: refA2, inView: inViewA2 } = useInView({ triggerOnce: true });
   const { ref: refA3, inView: inViewA3 } = useInView({ triggerOnce: true });
@@ -48,27 +57,23 @@ const Personnel = () => {
   const items = [
     {
       number: "01",
-      title: "Tận tâm và chuyên nghiệp",
-      description:
-        "Chúng tôi cam kết cung cấp dịch vụ pháp lý chất lượng cao nhất, với sự chú trọng vào từng chi tiết và cam kết đạt được kết quả tốt nhất đến cho khách hàng.",
+      title: t("tantamvachuyennghiep"),
+      description: t("chungtoicamketcacdv"),
     },
     {
       number: "02",
-      title: "Hiểu biết sâu rộng luật pháp",
-      description:
-        "Chúng tôi cam kết cung cấp dịch vụ pháp lý chất lượng cao nhất, với sự chú trọng vào từng chi tiết và cam kết đạt được kết quả tốt nhất đến cho khách hàng.",
+      title: t("hieubietsaurong"),
+      description: t("chungtoicamketcacdv"),
     },
     {
       number: "03",
-      title: "Kinh nghiệm thực tiễn phong phú",
-      description:
-        "Chúng tôi cam kết cung cấp dịch vụ pháp lý chất lượng cao nhất, với sự chú trọng vào từng chi tiết và cam kết đạt được kết quả tốt nhất đến cho khách hàng.",
+      title: t("kinhnghiemthuctien"),
+      description: t("chungtoicamketcacdv"),
     },
     {
       number: "04",
-      title: "Cam kết bảo vệ quyền lợi khách hàng",
-      description:
-        "Chúng tôi cam kết cung cấp dịch vụ pháp lý chất lượng cao nhất, với sự chú trọng vào từng chi tiết và cam kết đạt được kết quả tốt nhất đến cho khách hàng.",
+      title: t("camketbaoveqlkh"),
+      description: t("chungtoicamketcacdv"),
     },
   ];
   return (
@@ -80,21 +85,17 @@ const Personnel = () => {
               <div className="h-64 msmsm flex-col justify-start items-center gap-6 flex">
                 <div className="self-stretch flex-col justify-center items-center gap-2.5 flex">
                   <div className="w-full dnns justify-center items-center flex gap-3">
-                    <h1 className="text-center text-[#002740] text-32 text-[56px] font-bold font-space-grotesk ">
-                      Đội ngũ
-                    </h1>
+                    <h1 className="text-center text-[#002740] text-32 text-[56px] font-bold font-space-grotesk "></h1>
                     <div className="mrpr ">
-                      <ProfessionalBanner title="Nhân sự" />
+                      <ProfessionalBanner title={t("nhansu")} />
                     </div>
                   </div>
                   <h1 className=" textper w-350 self-stretch text-center text-32 text-[#002740] text-[56px] font-bold font-space-grotesk ">
-                    Tận Tâm - Chuyên Nghiệp - Hiệu Quả
+                    {t("ttcnhq")}
                   </h1>
                 </div>
                 <div className="w-[654px] w-350 text-center text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
-                  Khám phá đội ngũ luật sư và chuyên gia pháp lý hàng đầu tại
-                  Apolo Lawyers, luôn sẵn sàng hỗ trợ và bảo vệ quyền lợi của
-                  bạn.
+                  {t("khamphadn")}
                 </div>
               </div>
             </div>
@@ -117,15 +118,11 @@ const Personnel = () => {
                 <div className="self-stretch flex-col justify-start items-start gap-6 flex">
                   <div className="self-stretch h-14 flex-col justify-start items-start gap-4 flex">
                     <div className="self-stretch text-[#002740]  text-32 text-5xl font-bold font-space-grotesk leading-[56px]">
-                      Chúng tôi là ai?
+                      {t("chungtoilaai")}
                     </div>
                   </div>
                   <div className="self-stretch text-[#606670] text-base font-normal font-['Open Sans'] leading-7">
-                    Tại Apolo Lawyers, chúng tôi tin rằng con người là yếu tố
-                    cốt lõi tạo nên thành công và sự phát triển bền vững. Đội
-                    ngũ nhân sự của chúng tôi bao gồm các luật sư, chuyên gia
-                    pháp lý và nhân viên tận tâm, chuyên nghiệp, luôn mang đến
-                    dịch vụ pháp lý chất lượng cao.
+                    {t("taiapl")}
                   </div>
                 </div>
               </div>
@@ -139,7 +136,7 @@ const Personnel = () => {
               inViewA3 ? "animate-slide-top" : ""
             } text-dn-mobile text-48 text-32 text-center text-[#002740] text-5xl font-bold font-space-grotesk leading-[56px]`}
           >
-            Đội ngũ luật sư
+            {t("dnls")}
           </div>
           <div
             ref={refA4}
@@ -398,7 +395,7 @@ const Personnel = () => {
             </Row>
           </div>
           <ButtonCustom
-            title="Xem thêm"
+            title={t("xemthem")}
             from="#40e0d0"
             to="#48d1cc"
             color="text-white"
@@ -411,7 +408,7 @@ const Personnel = () => {
               inViewA3 ? "animate-slide-top" : ""
             } text-dn-mobile text-48 text-32 text-center text-[#002740] text-5xl font-bold font-space-grotesk leading-[56px]`}
           >
-            Chuyên gia pháp lý
+            {t("cgpl")}
           </div>
           <Row
             ref={refA4}
@@ -478,7 +475,7 @@ const Personnel = () => {
             </Col>
           </Row>
           <ButtonCustom
-            title="Xem thêm"
+            title={t("xemthem")}
             from="#40e0d0"
             to="#48d1cc"
             color="text-white"
@@ -491,18 +488,17 @@ const Personnel = () => {
             className={`${inViewA5 ? "animate-slide-bottom" : ""} flex-1`}
           >
             <div className="flex-col justify-start items-start flex gap-6 gtkb-contaner ">
-              <div className="text-32 text-48 text-gtkb text-[#002740] text-5xl font-bold font-space-grotesk leading-[56px]">
-                Lợi ích khi làm việc <br />
-                với chúng tôi
-              </div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: t("loiichkhilamviec"),
+                }}
+                className="text-32 text-48 text-gtkb text-[#002740] text-5xl font-bold font-space-grotesk leading-[56px]"
+              ></div>
               <div
                 className="text-16 desc-gtkb self-stretch text-[#606670] text-base font-normal font-open-sans leading-7"
                 style={{ height: "calc(200px - 20px)" }}
               >
-                Tại Apolo Lawyers, chúng tôi không ngừng nỗ lực để tạo ra sự
-                khác biệt trong từng dịch vụ pháp lý mà chúng tôi cung cấp. Các
-                giá trị cốt lõi dưới đây là nền tảng giúp chúng tôi mang đến cho
-                khách hàng những giải pháp pháp lý tốt nhất
+                {t("taiapchungtoitaonen")}
               </div>
             </div>
           </div>
@@ -569,22 +565,17 @@ const Personnel = () => {
               style={{ width: "60%" }}
             >
               <div className="ttdf self-stretch h-max flex-col justify-start items-start gap-4 flex">
-                <div className="text-24 text-start  text-[#9ea8b6] text-2xl font-bold font-space-grotesk leading-loose">
-                  Thành tựu
+                <div className="text-24 text-start  text-[#9ea8b6] text-2xl font-bold font-space-grotesk">
+                  {t("thanhtuu")}
                 </div>
                 <div
                   style={{ fontSize: `${check ? "32px" : "48px"} ` }}
                   className="self-stretch text-[#002740]  font-bold font-space-grotesk leading-[56px]"
                 >
-                  Thành Công Được Xây Dựng Từ Chất Lượng Và Tâm Huyết
+                  {t("thanhcongduocxaydung")}
                 </div>
                 <div className=" text-16 self-stretch text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Chúng tôi tự hào đã đạt được nhiều thành tựu nổi bật trong
-                  suốt quá trình hoạt động, từ việc giải quyết thành công hàng
-                  ngàn vụ án cho đến việc tư vấn và hỗ trợ pháp lý cho nhiều
-                  doanh nghiệp lớn. Những thành tựu này không chỉ khẳng định uy
-                  tín và năng lực của chúng tôi mà còn là động lực để chúng tôi
-                  tiếp tục nỗ lực hơn nữa trong tương lai.
+                  {t("chungtoituhaodatnhieuthanhtich")}
                 </div>
               </div>
             </div>
@@ -617,22 +608,19 @@ const Personnel = () => {
                 <div className="adasd flex-col justify-start items-start gap-6 flex">
                   <div className="  flex-col justify-start items-start flex">
                     <div className="text-gk text-48 text-32 text-[#002740] text-4xl font-bold font-space-grotesk ">
-                      Cam Kết Của Chúng Tôi
+                      {t("camketcuachungtoi")}
                     </div>
                   </div>
                   <div className="des-gk text-16 text-black text-base font-normal font-open-sans leading-normal">
-                    Chúng tôi cam kết cung cấp các dịch vụ pháp lý chất lượng,
-                    nhanh chóng và hiệu quả. Chúng tôi luôn sẵn sàng lắng nghe
-                    và giải quyết mọi vấn đề pháp lý của bạn với tinh thần trách
-                    nhiệm cao nhất. Hãy để Apolo Lawyers trở thành đối tác pháp
-                    lý tin cậy của bạn!
+                    {t("chungtoicamketcacdv")}
                   </div>
                   <div className="flex buttnsd justify-start items-start w-full">
                     <ButtonCustom
-                      title="Liên hệ ngay"
+                      title={t("lhngay")}
                       from="#40e0d0"
                       to="#48d1cc"
                       color="text-white"
+                      onClick={() => navigate("/lien-he")}
                     />
                   </div>
                 </div>
@@ -647,27 +635,33 @@ const Personnel = () => {
               inViewA5 ? "animate-slide-bottom" : ""
             } w-full h-max baovecontainer flex-col justify-start items-start gap-2.5 pb-20 flex`}
           >
-            <div className=" baove w-full h-max px-[200px] py-10 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-2xl shadow flex-col justify-start items-center gap-10 flex">
-              <div className="asd h-48 flex-col justify-start items-center gap-6 flex">
-                <div className="text-bvvvv text-center text-white text-5xl font-bold font-space-grotesk leading-[56px]">
-                  Bảo vệ {check && <br />} Quyền lợi của Bạn {!check && <br />}{" "}
-                  Ngay Hôm Nay!
+            <div className=" baove w-350 w-1440  px-[200px] py-16 bg-gradient-to-r from-[#40e0d0] to-[#48d1cc] rounded-2xl shadow flex-col justify-start items-center flex">
+              <div className="asd flex-col justify-center items-center gap-6 flex">
+                <div
+                  className="text-bvvvv text-center text-white text-5xl text-32 font-bold font-space-grotesk "
+                  dangerouslySetInnerHTML={{
+                    __html: t("bvQuyenLoi"),
+                  }}
+                ></div>
+                <div className="descbv w-[654px] text-16 text-center text-white text-base font-normal font-open-sans ">
+                  {t("desBVQuyenLoiCuaBan")}
                 </div>
-                <div className="descbv w-[654px] text-center text-white text-base font-normal font-open-sans leading-7">
-                  Đừng để những vấn đề pháp lý cản trở bước tiến của bạn. Hãy để
-                  Apolo Lawyers đồng hành và bảo vệ quyền lợi của bạn một cách
-                  chuyên nghiệp và tận tâm.
+                <div>
+                  <ButtonCustom
+                    title={t("lhngay")}
+                    from="#fff"
+                    to="#fff"
+                    color="text-black"
+                    onClick={handleOpenModal}
+                  />
                 </div>
               </div>
-              <ButtonCustom
-                title="Liên hệ ngay"
-                from="#fff"
-                to="#fff"
-                color="text-black"
-              />
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
       </div>
     </div>
   );

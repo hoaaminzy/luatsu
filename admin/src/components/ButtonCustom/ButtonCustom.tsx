@@ -5,6 +5,7 @@ interface ButtonProps {
   from?: string;
   to?: string;
   color?: string;
+  text?: string;
   onClick?: () => void;
 }
 import "./ButtonCustom.css";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./ArticleDetail.css";
 import Slider from "react-slick";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
@@ -202,10 +202,10 @@ const ArticleDetail = () => {
                 quyền, lợi ích và nghĩa vụ giữa các cổ đông, đội ngũ quản lý,
                 vận hành hoạt động kinh doanh trong công ty cổ phần.
               </div>
-              <div className=" text-[#606670] text-base font-normal font-open-sans ">
+              <div className="flex w-full text-[#606670] text-start text-base font-normal font-open-sans ">
                 Có thể chia tranh chấp giữa các cổ đông thành 2 loại:
               </div>
-              <div className=" text-[#606670] text-2xl font-bold font-space-grotesk ">
+              <div className="flex w-full text-start text-[#606670] text-2xl font-bold font-space-grotesk ">
                 1. Tranh chấp quyền lợi, nghĩa vụ giữa các cổ đông với nhau
               </div>
               <div className=" text-[#606670] text-base font-normal font-open-sans ">
@@ -247,7 +247,7 @@ const ArticleDetail = () => {
                 Có nhiều nguyên nhân dẫn đến tranh chấp quyền và nghĩa vụ giữa
                 các cổ đông trong công ty cổ phần.
               </div>
-              <div className=" text-[#606670] text-20 text-2xl font-bold font-space-grotesk ">
+              <div className="flex w-full text-start text-[#606670] text-20 text-2xl font-bold font-space-grotesk ">
                 1. Xuất phát từ rủi ro mua bán giao dịch chuyển nhượng tự do
               </div>
               <div className=" text-[#606670] text-base font-normal font-open-sans ">
@@ -281,7 +281,7 @@ const ArticleDetail = () => {
                 nhượng cổ phần trở thành một trong những chứng cứ quan trọng bên
                 cạnh những giấy tờ cần thiết nêu trên.
               </div>
-              <div className="text-20 text-[#606670] text-2xl font-bold font-space-grotesk ">
+              <div className="flex w-full text-start text-20 text-[#606670] text-2xl font-bold font-space-grotesk ">
                 2. Xuất phát từ báo cáo tài chính không minh bạch
               </div>
               <div className=" text-[#606670] text-base font-normal font-open-sans ">

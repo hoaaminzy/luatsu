@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./ RecruitingLawyers.css";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import briefcase_line from "../../assets/icon/fill/briefcase_line.png";

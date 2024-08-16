@@ -14,8 +14,13 @@ import ButtonCustom from "../ButtonCustom/ButtonCustom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import "./Footer.css";
+import { useTranslationContext } from "../../context/TranslationContext";
+// import { TFunction } from "i18next";
 
-// Hook to check if the viewport is mobile
+interface FooterProps {
+  // t?: TFunction;
+}
+
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -28,7 +33,8 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-export default function Footer() {
+const Footer: React.FC<FooterProps> = () => {
+  const t = useTranslationContext();
   const isMobile = useIsMobile();
   const [expandedSection, setExpandedSection] = useState(null);
   const handleToggle = (section) => {
@@ -52,10 +58,7 @@ export default function Footer() {
                   Apolo Laywers
                 </div>
                 <div className="self-stretch text-justify text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Cập nhật các tin tức pháp lý mới nhất, những thay đổi trong
-                  luật pháp và các bài viết phân tích chuyên sâu từ đội ngũ luật
-                  sư của chúng tôi. Hãy theo dõi để luôn được thông tin và chuẩn
-                  bị tốt nhất cho mọi tình huống pháp lý.
+                  {t("desTinMoiNhat")}
                 </div>
               </div>
               {[
@@ -72,14 +75,13 @@ export default function Footer() {
                 >
                   <div className="add" onClick={() => handleToggle(section)}>
                     <div className="text-add self-stretch text-[#002740] text-20 font-bold font-space-grotesk leading-9">
-                      {section === "headquarters" && "Trụ sở chính"}
-                      {section === "branch1" && "Chi nhánh 1"}
-                      {section === "branch2" && "Chi nhánh 2"}
-                      {section === "service" && "Dịch vụ"}
+                      {section === "headquarters" && t("trusochinh")}
+                      {section === "branch1" && t("chinhanh") + " " + "1"}
+                    {section === "branch2" && t("chinhanh") + " " + "2"}
+                      {section === "service" && t("dichvu")}
 
-                      {section === "connect" && "Tuyển dụng"}
-                      {section === "branch3" &&
-                        "Đăng Ký Tư Vấn Ngay Để Nhận Giải Pháp Pháp Lý Tốt Nhất!"}
+                      {section === "connect" && t("tuyendung")}
+                      {section === "branch3" && t("dktuvan")}
                     </div>
                     {expandedSection === section ? (
                       <MdKeyboardArrowUp style={{ fontSize: "30px" }} />
@@ -100,7 +102,7 @@ export default function Footer() {
                             <>
                               <div className="self-stretch h-[47px]">
                                 <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                                  Địa chỉ:
+                                  {t("diachi")}:
                                 </span>
                                 <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                                   {" "}
@@ -110,7 +112,7 @@ export default function Footer() {
                               </div>
                               <div className="self-stretch">
                                 <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                                  Số điện thoại:
+                                  {t("sdt")}:
                                 </span>
                                 <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                                   {" "}
@@ -123,7 +125,7 @@ export default function Footer() {
                             <>
                               <div className="self-stretch">
                                 <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                                  Địa chỉ:
+                                  {t("diachi")}:
                                 </span>
                                 <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                                   {" "}
@@ -133,7 +135,7 @@ export default function Footer() {
                               </div>
                               <div className="self-stretch">
                                 <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                                  Số điện thoại:
+                                  {t("sdt")}:
                                 </span>
                                 <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                                   {" "}
@@ -146,7 +148,7 @@ export default function Footer() {
                             <>
                               <div className="self-stretch h-[47px]">
                                 <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                                  Địa chỉ:
+                                  {t("diachi")}:
                                 </span>
                                 <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                                   {" "}
@@ -156,7 +158,7 @@ export default function Footer() {
                               </div>
                               <div className="self-stretch">
                                 <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                                  Số điện thoại:
+                                  {t("sdt")}:
                                 </span>
                                 <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                                   {" "}
@@ -169,43 +171,43 @@ export default function Footer() {
                             <>
                               <div className="flex-col justify-start items-start gap-2 flex">
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư riêng
+                                  {t("luatsurieng")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư tranh tụng
+                                  {t("luatsutranhtung")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư hình sự
+                                  {t("luatsuhinhsu")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư dân sự
+                                  {t("luatsudansu")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư nhà đất
+                                  {t("luatsunhadat")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư lao động
+                                  {t("luatsulaodong")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư tư vấn hợp đồng
+                                  {t("luatsutuvanhopdong")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư hôn nhân và gia đình
+                                  {t("luatsuhonnhavagiading")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư doanh nghiệp và đầu tư
+                                  {t("luatsudanhnghiepvadautu")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư tư vấn về xây dựng
+                                  {t("luatsutuvanvaxaydung")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư hàng hải và bảo hiểm quốc tế
+                                  {t("luatsuhanghaivabhqt")}
                                 </div>
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Luật sư cho người nước ngoài tại Việt Nam
+                                  {t("luatsunguoinuocngoaitaiVN")}
                                 </div>
                                 <div className="text-[#606670] text-base font-bold font-space-grotesk leading-normal">
-                                  Xem thêm...
+                                  {t("xemthem")}...
                                 </div>
                               </div>
                             </>
@@ -214,11 +216,11 @@ export default function Footer() {
                             <>
                               <div className="self-stretch h-16 flex-col justify-start items-start gap-2 flex">
                                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                                  Gửi thông tin ứng tuyển tại
+                                  {t("guittungtuyen")}
                                 </div>
                                 <div className="self-stretch">
                                   <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                                    Địa chỉ:
+                                    {t("diachi")}:
                                   </span>
                                   <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                                     {" "}
@@ -231,9 +233,7 @@ export default function Footer() {
                           {section === "branch3" && (
                             <>
                               <div className="self-stretch text-[#606670] text-justify text-base font-normal font-open-sans leading-7">
-                                Điền thông tin để nhận tư vấn miễn phí từ đội
-                                ngũ luật sư chuyên nghiệp của chúng tôi. Chúng
-                                tôi sẽ liên hệ và hỗ trợ bạn sớm nhất có thể.
+                                {t("dienthongtintuvan")}
                               </div>
                               <div className=" flex-col justify-center items-start gap-[17px] flex w-full">
                                 <div className="self-stretch flex-col justify-center items-start gap-4 inline-flex w-full">
@@ -248,7 +248,7 @@ export default function Footer() {
                                       className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#f3f3f3]  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 
                     peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
                                     >
-                                      Họ tên
+                                      {t("hoten")}
                                     </label>
                                   </div>
                                   <div className="relative w-full">
@@ -271,7 +271,7 @@ export default function Footer() {
                                     placeholder=" "
                                   />
                                   <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#f3f3f3]  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                                    Số điện thoại
+                                    {t("sdt")}
                                   </label>
                                 </div>
                                 <div className="w-full h-9">
@@ -280,7 +280,7 @@ export default function Footer() {
                                     className="bg-[#f3f3f3] h-full text-gray-900"
                                     style={{ width: "100%" }}
                                     dropdownStyle={{ background: "#f3f3f3" }}
-                                    placeholder="Chọn dịch vụ"
+                                    placeholder={t("alldv")}
                                     optionFilterProp="label"
                                     filterSort={(optionA, optionB) =>
                                       (optionA?.label ?? "")
@@ -324,7 +324,7 @@ export default function Footer() {
                                     placeholder=""
                                   ></textarea>
                                   <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#f3f3f3]  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                                    Nội dung tin nhắn
+                                    {t("ndtn")}
                                   </label>
                                 </div>
                               </div>
@@ -344,7 +344,7 @@ export default function Footer() {
               <div className="self-stretch flex-col justify-start items-start gap-4 flex">
                 <div className="add">
                   <div className="text-add self-stretch text-[#002740] text-20 font-bold font-space-grotesk leading-9">
-                    Kết nối với chúng tôi{" "}
+                    {t("knvoichungtoi")}
                   </div>
                 </div>
                 <div className="justify-start items-center gap-3 inline-flex">
@@ -388,7 +388,7 @@ export default function Footer() {
               <div className="pt-4 self-stretch flex-col justify-start items-start gap-4 flex">
                 <div className="add" onClick={() => handleToggle("payment")}>
                   <div className="text-add self-stretch text-[#002740] text-20 font-bold font-space-grotesk leading-9">
-                    Chấp nhận thanh toán
+                    {t("chapnhantt")}
                   </div>
                 </div>
                 <div className="flex-col justify-start items-center gap-2 flex">
@@ -413,10 +413,7 @@ export default function Footer() {
   }
 
   return (
-    <div
-      className="footermobile  py-20 bg-[#f3f3f3]"
-      style={{ width: "100%" }}
-    >
+    <div className="footermobile  py-20 bg-[#f3f3f3]" style={{ width: "100%" }}>
       <section className="w-1440 mx-auto">
         <Row>
           <Col
@@ -428,22 +425,19 @@ export default function Footer() {
                 Apolo Laywers
               </div>
               <div className="self-stretch text-justify text-[#606670] text-base font-normal font-open-sans leading-7">
-                Cập nhật các tin tức pháp lý mới nhất, những thay đổi trong luật
-                pháp và các bài viết phân tích chuyên sâu từ đội ngũ luật sư của
-                chúng tôi. Hãy theo dõi để luôn được thông tin và chuẩn bị tốt
-                nhất cho mọi tình huống pháp lý.
+                {t("desTinMoiNhat")}
               </div>
             </div>
             <div className="self-stretch flex-col justify-start items-start gap-4 flex">
               <div className="add">
                 <div className="self-stretch text-[#002740] text-28 text-20 font-bold font-space-grotesk leading-9">
-                  Trụ sở chính
+                  {t("trusochinh")}
                 </div>
               </div>
               <div className="self-stretch flex-col justify-start items-start gap-2 flex">
                 <div className="self-stretch h-[47px]">
                   <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                    Địa chỉ:
+                    {t("diachi")}:
                   </span>
                   <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                     {" "}
@@ -453,7 +447,7 @@ export default function Footer() {
                 </div>
                 <div className="self-stretch">
                   <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                    Số điện thoại:
+                    {t("sdt")}:
                   </span>
                   <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                     {" "}
@@ -465,13 +459,13 @@ export default function Footer() {
             <div className="self-stretch flex-col justify-start items-start gap-4 flex">
               <div className="add">
                 <div className="self-stretch text-[#002740] text-28 text-20  font-bold font-space-grotesk leading-9">
-                  Chi nhánh 1
+                  {t("chinhanh")} 1
                 </div>
               </div>
               <div className="self-stretch  flex-col justify-start items-start gap-2 flex">
                 <div className="self-stretch">
                   <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                    Địa chỉ:
+                    {t("diachi")}:
                   </span>
                   <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                     {" "}
@@ -480,7 +474,7 @@ export default function Footer() {
                 </div>
                 <div className="self-stretch">
                   <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                    Số điện thoại:
+                    {t("sdt")}:
                   </span>
                   <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                     {" "}
@@ -492,13 +486,13 @@ export default function Footer() {
             <div className="self-stretch  flex-col justify-start items-start gap-4 flex">
               <div className="add">
                 <div className=" add self-stretch text-[#002740] text-28 text-20  font-bold font-space-grotesk leading-9">
-                  Chi nhánh 2
+                  {t("chinhanh")} 2
                 </div>
               </div>
               <div className="self-stretch  flex-col justify-start items-start gap-2 flex">
                 <div className="self-stretch h-[47px]">
                   <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                    Địa chỉ:
+                    {t("diachi")}:
                   </span>
                   <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                     {" "}
@@ -508,7 +502,7 @@ export default function Footer() {
                 </div>
                 <div className="self-stretch">
                   <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                    Số điện thoại:
+                    {t("sdt")}:
                   </span>
                   <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                     {" "}
@@ -520,7 +514,7 @@ export default function Footer() {
             <div className="self-stretch flex-col justify-start items-start gap-4 flex">
               <div className="add">
                 <div className="self-stretch text-[#002740] text-28 text-20  font-bold font-space-grotesk leading-9">
-                  Kết nối với chúng tôi{" "}
+                  {t("knvoichungtoi")}
                 </div>
               </div>
               <div className="justify-start items-center gap-3 inline-flex">
@@ -564,64 +558,64 @@ export default function Footer() {
             <div className="self-stretch flex-col justify-start items-start gap-4 flex">
               <div className="add">
                 <div className="self-stretch text-[#002740] text-28 text-20  font-bold font-space-grotesk leading-9">
-                  Dịch vụ
+                  {t("dichvu")}
                 </div>
               </div>
               <div className="flex-col justify-start items-start gap-2 flex">
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư riêng
+                  {t("luatsurieng")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư tranh tụng
+                  {t("luatsutranhtung")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư hình sự
+                  {t("luatsuhinhsu")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư dân sự
+                  {t("luatsudansu")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư nhà đất
+                  {t("luatsunhadat")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư lao động
+                  {t("luatsulaodong")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư tư vấn hợp đồng
+                  {t("luatsutuvanhopdong")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư hôn nhân và gia đình
+                  {t("luatsuhonnhavagiading")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư doanh nghiệp và đầu tư
+                  {t("luatsudanhnghiepvadautu")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư tư vấn về xây dựng
+                  {t("luatsutuvanvaxaydung")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư hàng hải và bảo hiểm quốc tế
+                  {t("luatsuhanghaivabhqt")}
                 </div>
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Luật sư cho người nước ngoài tại Việt Nam
+                  {t("luatsunguoinuocngoaitaiVN")}
                 </div>
                 <div className="text-[#606670] text-base font-bold font-space-grotesk leading-normal">
-                  Xem thêm...
+                  {t("xemthem")}...
                 </div>
               </div>
             </div>
             <div className="self-stretch  flex-col justify-start items-start gap-4 flex">
               <div className="add">
                 <div className="self-stretch text-[#002740] text-28 text-20  font-bold font-space-grotesk leading-9">
-                  Tuyển dụng
+                  {t("tuyendung")}
                 </div>
               </div>
               <div className="self-stretch h-16 flex-col justify-start items-start gap-2 flex">
                 <div className="text-[#606670] text-base font-normal font-open-sans leading-7">
-                  Gửi thông tin ứng tuyển tại
+                  {t("guittungtuyen")}
                 </div>
                 <div className="self-stretch">
                   <span className="text-[#002740] text-base font-bold font-open-sans leading-7">
-                    Địa chỉ:
+                    {t("diachi")}:
                   </span>
                   <span className="text-[#606670] text-base font-normal font-open-sans leading-7">
                     {" "}
@@ -637,12 +631,10 @@ export default function Footer() {
           >
             <div className="self-stretch flex-col justify-start items-start gap-4 flex">
               <span className="self-stretch text-[#002740] text-28 text-20  font-bold font-space-grotesk leading-9">
-                Đăng Ký Tư Vấn Ngay Để Nhận Giải Pháp Pháp Lý Tốt Nhất!
+                {t("dktuvan")}
               </span>
               <div className="self-stretch text-[#606670] text-justify text-base font-normal font-open-sans leading-7">
-                Điền thông tin để nhận tư vấn miễn phí từ đội ngũ luật sư chuyên
-                nghiệp của chúng tôi. Chúng tôi sẽ liên hệ và hỗ trợ bạn sớm
-                nhất có thể.
+                {t("dienthongtintuvan")}
               </div>
             </div>
             <div className=" flex-col justify-center items-start gap-[17px] flex w-full">
@@ -658,7 +650,7 @@ export default function Footer() {
                     className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#f3f3f3]  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 
                     peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
                   >
-                    Họ tên
+                    {t("hoten")}
                   </label>
                 </div>
                 <div className="relative w-full">
@@ -681,7 +673,7 @@ export default function Footer() {
                   placeholder=" "
                 />
                 <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#f3f3f3]  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                  Số điện thoại
+                  {t("sdt")}
                 </label>
               </div>
               <div className="w-full h-9">
@@ -690,7 +682,7 @@ export default function Footer() {
                   className="bg-[#f3f3f3] h-full text-gray-900"
                   style={{ width: "100%" }}
                   dropdownStyle={{ background: "#f3f3f3" }}
-                  placeholder="Chọn dịch vụ"
+                  placeholder={t("alldv")}
                   optionFilterProp="label"
                   filterSort={(optionA, optionB) =>
                     (optionA?.label ?? "")
@@ -732,14 +724,19 @@ export default function Footer() {
                   placeholder=""
                 ></textarea>
                 <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#f3f3f3]  px-2 peer-focus:px-2 peer-focus:text-[#606670] peer-focus:dark:text-[#606670] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                  Nội dung tin nhắn
+                  {t("ndtn")}
                 </label>
               </div>
             </div>
-            <ButtonCustom title="Gửi" from="#40e0d0" to="#48d1cc" />
+            <ButtonCustom
+              title={t("gui")}
+              color="text-white"
+              from="#40e0d0"
+              to="#48d1cc"
+            />
             <div className="self-stretch h-[106px] flex-col justify-start items-start gap-4 flex">
               <div className="self-stretch text-[#002740] text-28 text-20  font-bold font-space-grotesk leading-9">
-                Chấp nhận thanh toán
+                {t("chapnhantt")}
               </div>
               <div className="justify-start items-center gap-4 inline-flex">
                 <img className="w-20 h-[54px]" src={mastercard} />
@@ -752,4 +749,5 @@ export default function Footer() {
       </section>
     </div>
   );
-}
+};
+export default Footer;

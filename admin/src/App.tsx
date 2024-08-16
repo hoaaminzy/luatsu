@@ -22,6 +22,7 @@ function App() {
           <Route path="/cap-nhat-mat-khau" element={<ResetPass/>}/>
           <Route path="/admin/dashboard" element={<Layout><Dashboard/></Layout>} />
           <Route path="/admin/noi-dung" element={<Layout><Content/></Layout>} />
+          
           <Route path="/admin/nguoi-dung" element={<Layout><User/></Layout>} />
           <Route path="/admin/social" element={<Layout><Social/></Layout>} />
           <Route path="/admin/API" element={<Layout><Api/></Layout>} />

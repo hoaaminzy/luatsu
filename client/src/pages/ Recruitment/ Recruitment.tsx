@@ -177,7 +177,11 @@ const Recruitment = () => {
 
   return (
     <div>
-      <div className="py-24   bg-white flex-col flex justify-center items-center td">
+      <div
+        className={`${
+          check === true ? "py-24" : "py-24 "
+        }  bg-white flex-col flex justify-center items-center td`}
+      >
         <div className="w-350 w-1440">
           <div className="h-[406px] py-16 flex-col justify-start items-start gap-2.5 flex">
             <div className="w-full h-[278px] flex-col justify-start items-center gap-12 flex gap-recu">

@@ -1,5 +1,6 @@
 import React from "react";
 import { Select } from "antd";
+import './Model.css'
 interface ModalProps {
   onClose?: () => void;
   isOpen?: boolean;
@@ -15,7 +16,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, isOpen }) => {
       onClick={onClose}
     >
       <div
-        className="w-[492px] h-max p-6 bg-[#f3f3f3] rounded-2xl flex-col justify-start items-center gap-6 inline-flex"
+        className="w-[492px] w-350 h-max p-6 bg-[#f3f3f3] rounded-2xl flex-col justify-start items-center gap-6 inline-flex"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="self-stretch h-max flex-col justify-start items-start gap-4 flex">
